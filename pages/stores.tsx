@@ -13,7 +13,7 @@ const Customer: NextPage = () => {
 
   useEffect(() => {
     const fetchTable = async () => {
-      const res = await fetch("/api/orders");
+      const res = await fetch("/api/stores");
       const json = await res.json();
       setTable(json);
       return res;

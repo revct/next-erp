@@ -4,13 +4,12 @@ import Sidebar from "./Sidebar";
 
 const Layout = (props: any) => {
   return (
-    <>
+    <section className="flex flex-col min-h-screen">
       <Header></Header>
-      <div className="flex">
-        <Sidebar></Sidebar>
-        <main>{props.children}</main>
-      </div>
-    </>
+      <section className="flex flex-row flex-auto">
+        <main className="flex-auto p-4 bg-gray-50">{props.children}</main>
+      </section>
+    </section>
   );
 };
 
