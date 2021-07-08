@@ -13,30 +13,48 @@ type Column = {
   key: unknown;
 };
 
+const columns = [
+  {
+    key: "name",
+    name: "客户姓名",
+  },
+  {
+    key: "phone",
+    name: "联系方式",
+  },
+  {
+    key: "address",
+    name: "地址",
+  },
+  {
+    key: "remark",
+    name: "备注",
+  },
+];
+
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<Table>,
+  res: NextApiResponse<any>,
 ) {
-  const persons = await prisma.person.findMany();
-  res.status(200).json({
-    columns: [
+  switch (req.method) {
+    case "GET":
       {
-        key: "name",
-        name: "客户姓名",
-      },
+        const rows = await prisma.person.findMany();
+        res.status(200).json({
+          columns,
+          rows,
+        });
+      }
+      break;
+    case "POST":
       {
-        key: "phone",
-        name: "联系方式",
-      },
-      {
-        key: "address",
-        name: "地址",
-      },
-      {
-        key: "remark",
-        name: "备注",
-      },
-    ],
-    rows: persons,
-  });
+        const data = req.body;
+        const rows = await prisma.person.create({ data });
+
+        res.status(200).json(rows);
+      }
+      break;
+    default:
+      res.status(200).json({ message: "没有定义的请求" });
+  }
 }
