@@ -1,40 +1,69 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
+
+import { Person, PrismaClient } from "@prisma/client";
+import { omit } from "lodash";
 import type { NextApiRequest, NextApiResponse } from "next";
-import Customer from "../persons";
+const prisma = new PrismaClient();
 
-type Table = {
-  columns: Column[];
-  rows: Row[];
-};
+const columns = [
+  {
+    key: "name",
+    name: "品名",
+  },
+  {
+    key: "code",
+    name: "料号",
+  },
+  {
+    key: "specs",
+    name: "规格",
+  },
+  {
+    key: "supplierId",
+    name: "供应商",
+  },
+];
 
-type Column = {
-  name: string;
-  key: unknown;
-};
-
-type Row = {
-  T: string;
-};
-
-export default function handler(
+export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<Table>,
+  res: NextApiResponse<any>,
 ) {
-  res.status(200).json({
-    columns: [
+  switch (req.method) {
+    case "GET":
       {
-        key: "name",
-        name: "品名",
-      },
+        const rows = await prisma.item.findMany({
+          include: {
+            supplier: true,
+          },
+        });
+        res.status(200).json({
+          columns,
+          rows,
+        });
+      }
+      break;
+    case "POST":
       {
-        key: "code",
-        name: "料号",
-      },
+        const data = req.body;
+        data.supplierId = Number(data.supplierId);
+        const rows = await prisma.item.create({ data });
+
+        res.status(200).json(rows);
+      }
+      break;
+    case "PUT":
       {
-        key: "specs",
-        name: "规格",
-      },
-    ],
-    rows: [],
-  });
+        const data = omit(req.body, ["supplier"]);
+        data.supplierId = Number(data.supplierId);
+        const rows = await prisma.item.update({
+          data,
+          where: { id: data.id },
+        });
+
+        res.status(200).json(rows);
+      }
+      break;
+    default:
+      res.status(200).json({ message: "没有定义的请求" });
+  }
 }

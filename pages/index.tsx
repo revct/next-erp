@@ -11,8 +11,8 @@ interface MenuProps {
 const Home = () => {
   const menus = [
     {
-      label: "客户管理",
-      name: "客户管理",
+      label: "联系人管理",
+      name: "联系人管理",
       path: "/persons",
       icon: "clarity:users-solid",
       desc: "描述",

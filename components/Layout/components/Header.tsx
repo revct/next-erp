@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 const menus = [
   {
     key: "person",
-    name: "客户管理",
+    name: "联系人管理",
     path: "/persons",
   },
   {

@@ -10,16 +10,22 @@
   },
   "dependencies": {
     "@prisma/client": "2.26.0",
+    "ag-grid-community": "^25.3.0",
+    "ag-grid-react": "^25.3.0",
     "ahooks": "^2.10.7",
     "dayjs": "^1.10.6",
+    "lodash": "^4.17.21",
     "lodash-es": "^4.17.21",
     "next": "11.0.1",
     "react": "17.0.2",
     "react-data-grid": "^7.0.0-canary.49",
     "react-dom": "17.0.2",
-    "react-hook-form": "^7.10.1"
+    "react-hook-form": "^7.10.1",
+    "react-table": "^7.7.0",
+    "swr": "^0.5.6"
   },
   "devDependencies": {
+    "@types/lodash": "^4.14.171",
     "@types/react": "17.0.13",
     "autoprefixer": "^10.2.6",
     "eslint": "7.30.0",

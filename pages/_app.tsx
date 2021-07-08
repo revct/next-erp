@@ -1,4 +1,6 @@
-import "../styles/globals.css";''
+import "../styles/globals.css";
+import 'ag-grid-community/dist/styles/ag-grid.css';
+import 'ag-grid-community/dist/styles/ag-theme-alpine.css';
 import Head from "next/head";
 import Script from "next/script";
 import type { AppProps } from "next/app";

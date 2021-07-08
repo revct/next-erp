@@ -1,36 +1,10 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 
-import { Person, PrismaClient } from "@prisma/client";
+import { PrismaClient } from "@prisma/client";
 import type { NextApiRequest, NextApiResponse } from "next";
+import { PersonColumns } from "../../data/columns";
+import { omit } from "lodash";
 const prisma = new PrismaClient();
-type Table = {
-  columns: Column[];
-  rows: Person[];
-};
-
-type Column = {
-  name: string;
-  key: unknown;
-};
-
-const columns = [
-  {
-    key: "name",
-    name: "客户姓名",
-  },
-  {
-    key: "phone",
-    name: "联系方式",
-  },
-  {
-    key: "address",
-    name: "地址",
-  },
-  {
-    key: "remark",
-    name: "备注",
-  },
-];
 
 export default async function handler(
   req: NextApiRequest,
@@ -41,7 +15,7 @@ export default async function handler(
       {
         const rows = await prisma.person.findMany();
         res.status(200).json({
-          columns,
+          columns: PersonColumns,
           rows,
         });
       }
@@ -50,6 +24,16 @@ export default async function handler(
       {
         const data = req.body;
         const rows = await prisma.person.create({ data });
+        res.status(200).json(rows);
+      }
+      break;
+    case "PUT":
+      {
+        const data = omit(req.body, []);
+        const rows = await prisma.person.update({
+          data,
+          where: { id: data.id },
+        });
 
         res.status(200).json(rows);
       }

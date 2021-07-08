@@ -1,13 +1,10 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
+generator client {
+  provider = "prisma-client-js"
+}
 
 datasource db {
   provider = "sqlite"
   url      = "file:./dev.db"
-}
-
-generator client {
-  provider = "prisma-client-js"
 }
 
 model Person {
@@ -15,37 +12,40 @@ model Person {
   name      String?
   phone     String?
   address   String?
-  remark    String?
+  remarks   String?
   createdAt DateTime @default(now())
   Order     Order[]
+  Item      Item[]
 }
 
 model Item {
-  id        Int      @id @default(autoincrement())
-  name      String?
-  code      String?
-  specs     String?
-  createdAt DateTime @default(now())
-  Order     Order[]
-  Stock     Stock[]
+  id         Int      @id @default(autoincrement())
+  name       String?
+  code       String?
+  specs      String?
+  supplierId Int?
+  supplier   Person?  @relation(fields: [supplierId], references: [id])
+  createdAt  DateTime @default(now())
+  Order      Order[]
+  Stock      Stock[]
 }
 
 model Stock {
   id        Int      @id @default(autoincrement())
-  itemId    Int
-  Item      Item     @relation(fields: [itemId], references: [id])
-  number    Int      @default(0)
+  itemId    Int?
+  number    Int?     @default(0)
   location  String?
   createdAt DateTime @default(now())
+  Item      Item?    @relation(fields: [itemId], references: [id])
 }
 
 model Order {
   id          Int      @id @default(autoincrement())
   status      String
-  customerId  Int
-  Customer    Person   @relation(fields: [customerId], references: [id])
-  itemId      Int
-  Item        Item     @relation(fields: [itemId], references: [id])
+  customerId  Int?
+  itemId      Int?
   createdAt   DateTime @default(now())
   deliveredAt DateTime @default(now())
+  Customer    Person?  @relation(fields: [customerId], references: [id])
+  Item        Item?    @relation(fields: [itemId], references: [id])
 }
