@@ -1,10 +1,11 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import type { NextApiRequest, NextApiResponse } from "next";
-import Customer from "../customers";
 
+import { Person, PrismaClient } from "@prisma/client";
+import type { NextApiRequest, NextApiResponse } from "next";
+const prisma = new PrismaClient();
 type Table = {
   columns: Column[];
-  rows: Row[];
+  rows: Person[];
 };
 
 type Column = {
@@ -12,29 +13,30 @@ type Column = {
   key: unknown;
 };
 
-type Row = {
-  T: string;
-};
-
-export default function handler(
+export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Table>,
 ) {
+  const persons = await prisma.person.findMany();
   res.status(200).json({
     columns: [
       {
         key: "name",
-        name: "名字",
+        name: "客户姓名",
       },
       {
         key: "phone",
-        name: "手机号",
+        name: "联系方式",
       },
       {
         key: "address",
         name: "地址",
       },
+      {
+        key: "remark",
+        name: "备注",
+      },
     ],
-    rows: [],
+    rows: persons,
   });
 }

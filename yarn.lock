@@ -183,6 +183,23 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
+"@prisma/client@2.26.0":
+  version "2.26.0"
+  resolved "https://registry.nlark.com/@prisma/client/download/@prisma/client-2.26.0.tgz#a23a83bc5c931243ee20b78d9ded423e158aa4c1"
+  integrity sha1-ojqDvFyTEkPuILeNne1CPhWKpME=
+  dependencies:
+    "@prisma/engines-version" "2.26.0-23.9b816b3aa13cc270074f172f30d6eda8a8ce867d"
+
+"@prisma/engines-version@2.26.0-23.9b816b3aa13cc270074f172f30d6eda8a8ce867d":
+  version "2.26.0-23.9b816b3aa13cc270074f172f30d6eda8a8ce867d"
+  resolved "https://registry.nlark.com/@prisma/engines-version/download/@prisma/engines-version-2.26.0-23.9b816b3aa13cc270074f172f30d6eda8a8ce867d.tgz?cache=0&sync_timestamp=1625738805698&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40prisma%2Fengines-version%2Fdownload%2F%40prisma%2Fengines-version-2.26.0-23.9b816b3aa13cc270074f172f30d6eda8a8ce867d.tgz#aa707f4496ab92ef1eaf17758274f63b86d2ff9f"
+  integrity sha1-qnB/RJarku8erxd1gnT2O4bS/58=
+
+"@prisma/engines@2.26.0-23.9b816b3aa13cc270074f172f30d6eda8a8ce867d":
+  version "2.26.0-23.9b816b3aa13cc270074f172f30d6eda8a8ce867d"
+  resolved "https://registry.nlark.com/@prisma/engines/download/@prisma/engines-2.26.0-23.9b816b3aa13cc270074f172f30d6eda8a8ce867d.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40prisma%2Fengines%2Fdownload%2F%40prisma%2Fengines-2.26.0-23.9b816b3aa13cc270074f172f30d6eda8a8ce867d.tgz#cfdacfad3acc0f3bf1d7710aa8f3852fd85ac6d9"
+  integrity sha1-z9rPrTrMDzvx13EKqPOFL9haxtk=
+
 "@rushstack/eslint-patch@^1.0.6":
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/@rushstack/eslint-patch/-/eslint-patch-1.0.6.tgz#023d72a5c4531b4ce204528971700a78a85a0c50"
@@ -2706,6 +2723,13 @@ pretty-hrtime@^1.0.3:
   version "1.0.3"
   resolved "https://registry.nlark.com/pretty-hrtime/download/pretty-hrtime-1.0.3.tgz#b7e3ea42435a4c9b2759d99e0f201eb195802ee1"
   integrity sha1-t+PqQkNaTJsnWdmeDyAesZWALuE=
+
+prisma@2.26.0:
+  version "2.26.0"
+  resolved "https://registry.nlark.com/prisma/download/prisma-2.26.0.tgz#48f7b8fa166900ae20f2383da711ac8712a56b86"
+  integrity sha1-SPe4+hZpAK4g8jg9pxGshxKla4Y=
+  dependencies:
+    "@prisma/engines" "2.26.0-23.9b816b3aa13cc270074f172f30d6eda8a8ce867d"
 
 process-nextick-args@~2.0.0:
   version "2.0.1"

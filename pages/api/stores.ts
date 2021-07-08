@@ -1,6 +1,6 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
-import Customer from "../customers";
+import Customer from "../persons";
 
 type Table = {
   columns: Column[];
@@ -29,10 +29,6 @@ export default function handler(
       {
         key: "code",
         name: "编号",
-      },
-      {
-        key: "phone",
-        name: "手机号",
       },
       {
         key: "address",

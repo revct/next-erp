@@ -22,24 +22,20 @@ export default function handler(
   res.status(200).json({
     columns: [
       {
-        key: "number",
-        name: "订单号",
+        key: "status",
+        name: "订单状态",
       },
       {
         key: "date",
-        name: "日期",
+        name: "交付日期",
       },
       {
         key: "customer",
-        name: "客户",
+        name: "客户信息",
       },
       {
         key: "item",
-        name: "产品",
-      },
-      {
-        key: "store",
-        name: "仓库",
+        name: "产品信息",
       },
     ],
     rows: [],

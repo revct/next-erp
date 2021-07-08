@@ -13,7 +13,7 @@ const Home = () => {
     {
       label: "客户管理",
       name: "客户管理",
-      path: "/customers",
+      path: "/persons",
       icon: "clarity:users-solid",
       desc: "描述",
     },

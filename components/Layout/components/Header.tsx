@@ -5,28 +5,23 @@ import { useEffect, useState } from "react";
 
 const menus = [
   {
-    key: "customers",
-    name: "客户",
-    path: "/customers",
-  },
-  {
-    key: "stores",
-    name: "仓库",
-    path: "/stores",
+    key: "person",
+    name: "客户管理",
+    path: "/persons",
   },
   {
     key: "items",
-    name: "条目",
+    name: "物料管理",
     path: "/items",
   },
   {
     key: "stocks",
-    name: "库存",
+    name: "库存管理",
     path: "/stocks",
   },
   {
     key: "orders",
-    name: "订单",
+    name: "订单管理",
     path: "/orders",
   },
 ];
