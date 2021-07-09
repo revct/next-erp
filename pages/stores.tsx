@@ -1,9 +1,7 @@
+import { DataGrid } from "@material-ui/data-grid";
 import { NextPage } from "next";
-import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
 import Layout from "../components/Layout/components/Layout";
-
-const DataGrid = dynamic(() => import("react-data-grid"), { ssr: false });
 
 const Customer: NextPage = () => {
   const [table, setTable] = useState({
