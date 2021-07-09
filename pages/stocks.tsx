@@ -1,3 +1,4 @@
+import { Button } from "@material-ui/core";
 import { DataGrid } from "@material-ui/data-grid";
 import { NextPage } from "next";
 import Layout from "../components/Layout/components/Layout";
@@ -32,12 +33,14 @@ const Customer: NextPage = () => {
   return (
     <Layout>
       <section className="mb-4">
-        <button
-          className="bg-green-500 hover:bg-green-600 text-white px-3 py-2 rounded"
+        <Button
           onClick={() => handleCreate()}
+          variant="contained"
+          color="primary"
+          disableElevation
         >
           新增
-        </button>
+        </Button>
       </section>
       <DataGrid columns={StockColumns} rows={stocks.rows}></DataGrid>
     </Layout>

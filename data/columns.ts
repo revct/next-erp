@@ -16,6 +16,7 @@ export const PersonColumns: GridColDef[] = [
     field: "address",
     headerName: "地址",
     flex: 1,
+    editable: true,
   },
   {
     field: "remarks",
