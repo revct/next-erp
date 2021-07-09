@@ -1,14 +1,12 @@
+import { DataGrid } from "@material-ui/data-grid";
 import { NextPage } from "next";
-import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
 import Layout from "../components/Layout/components/Layout";
-
-const DataGrid = dynamic(() => import("react-data-grid"), { ssr: false });
+import { OrderColumns } from "../data/columns";
 
 const Customer: NextPage = () => {
   const [table, setTable] = useState({
     rows: [],
-    columns: [],
   });
 
   useEffect(() => {
@@ -23,7 +21,7 @@ const Customer: NextPage = () => {
 
   return (
     <Layout>
-      <DataGrid columns={table.columns} rows={table.rows} />
+      <DataGrid columns={OrderColumns} rows={table.rows} />
     </Layout>
   );
 };

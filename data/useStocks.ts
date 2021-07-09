@@ -1,13 +1,14 @@
 import useSWR from "swr";
 
-const usePersons = () => {
+const useStocks = () => {
   const {
     data = {
+      columns: [],
       rows: [],
     },
     mutate,
     error,
-  } = useSWR("/api/persons");
+  } = useSWR("/api/stocks");
 
   return {
     data,
@@ -16,4 +17,4 @@ const usePersons = () => {
   };
 };
 
-export default usePersons;
+export default useStocks;

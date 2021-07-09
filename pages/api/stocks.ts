@@ -1,48 +1,49 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
+
+import { Person, PrismaClient } from "@prisma/client";
+import { omit, pick } from "lodash";
 import type { NextApiRequest, NextApiResponse } from "next";
-import Customer from "../persons";
+const prisma = new PrismaClient();
 
-type Table = {
-  columns: Column[];
-  rows: Row[];
-};
-
-type Column = {
-  name: string;
-  key: unknown;
-};
-
-type Row = {
-  T: string;
-};
-
-export default function handler(
+export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<Table>,
+  res: NextApiResponse<any>,
 ) {
-  res.status(200).json({
-    columns: [
+  switch (req.method) {
+    case "GET":
       {
-        key: "status",
-        name: "状态",
-      },
+        const rows = await prisma.stock.findMany({
+          include: {
+            item: true,
+          },
+        });
+        res.status(200).json({
+          rows,
+        });
+      }
+      break;
+    case "POST":
       {
-        key: "item",
-        name: "品名",
-      },
+        const data = pick(req.body, ["id"]);
+        const rows = await prisma.stock.create({
+          data,
+        });
+
+        res.status(200).json(rows);
+      }
+      break;
+    case "PUT":
       {
-        key: "code",
-        name: "编号",
-      },
-      {
-        key: "number",
-        name: "数量",
-      },
-      {
-        key: "store",
-        name: "储位",
-      },
-    ],
-    rows: [],
-  });
+        const data = pick(req.body, ["id"]);
+        const rows = await prisma.stock.update({
+          data,
+          where: { id: data.id },
+        });
+
+        res.status(200).json(rows);
+      }
+      break;
+    default:
+      res.status(200).json({ message: "没有定义的请求" });
+  }
 }

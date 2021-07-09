@@ -43,9 +43,9 @@ const Header = () => {
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center space-x-4">
             <Link href="/" passHref>
-              <button className="block flex-shrink-0">
+              <button className="block flex-shrink-0 w-8 h-8 text-2xl">
                 <span
-                  className="iconify w-8 h-8 text-green-500"
+                  className="iconify  text-green-500"
                   data-icon="el:home-alt"
                   data-inline="false"
                 ></span>
@@ -54,17 +54,18 @@ const Header = () => {
             <div className="hidden md:block">
               <div className="flex items-baseline space-x-4">
                 {menus.map((item) => (
-                  <a
-                    key={item.key}
-                    href={item.path}
-                    className={`font-medium text-sm rounded-md px-3 py-2 ${
-                      isActive(item.path)
-                        ? "bg-gray-900 text-white"
-                        : "text-gray-300 hover:bg-gray-700 hover:text-white"
-                    }`}
-                  >
-                    {item.name}
-                  </a>
+                  <Link key={item.key} href={item.path} passHref>
+                    <a
+                      href={item.path}
+                      className={`font-medium text-sm rounded-md px-3 py-2 ${
+                        isActive(item.path)
+                          ? "bg-gray-900 text-white"
+                          : "text-gray-300 hover:bg-gray-700 hover:text-white"
+                      }`}
+                    >
+                      {item.name}
+                    </a>
+                  </Link>
                 ))}
               </div>
             </div>

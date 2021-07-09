@@ -2,7 +2,6 @@
 
 import { PrismaClient } from "@prisma/client";
 import type { NextApiRequest, NextApiResponse } from "next";
-import { PersonColumns } from "../../data/columns";
 import { omit } from "lodash";
 const prisma = new PrismaClient();
 
@@ -15,7 +14,6 @@ export default async function handler(
       {
         const rows = await prisma.person.findMany();
         res.status(200).json({
-          columns: PersonColumns,
           rows,
         });
       }

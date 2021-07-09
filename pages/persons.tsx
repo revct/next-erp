@@ -1,4 +1,4 @@
-import { AgGridColumn, AgGridReact } from "ag-grid-react";
+import { DataGrid } from "@material-ui/data-grid";
 import { NextPage } from "next";
 import Layout from "../components/Layout/components/Layout";
 import { PersonColumns } from "../data/columns";
@@ -39,21 +39,7 @@ const Customer: NextPage = () => {
           新增
         </button>
       </section>
-      <div className="ag-theme-alpine" style={{ height: 400 }}>
-        <AgGridReact
-          defaultColDef={{ flex: 1, filter: true, editable: true }}
-          rowData={data.rows}
-          onCellValueChanged={({ data }) => handleUpdate(data)}
-        >
-          {PersonColumns.map((item: any) => (
-            <AgGridColumn
-              headerName={item.name}
-              field={item.key}
-              key={item.key}
-            ></AgGridColumn>
-          ))}
-        </AgGridReact>
-      </div>
+      <DataGrid columns={PersonColumns} rows={data.rows}></DataGrid>
     </Layout>
   );
 };

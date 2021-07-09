@@ -5,25 +5,6 @@ import { omit } from "lodash";
 import type { NextApiRequest, NextApiResponse } from "next";
 const prisma = new PrismaClient();
 
-const columns = [
-  {
-    key: "name",
-    name: "品名",
-  },
-  {
-    key: "code",
-    name: "料号",
-  },
-  {
-    key: "specs",
-    name: "规格",
-  },
-  {
-    key: "supplierId",
-    name: "供应商",
-  },
-];
-
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<any>,
@@ -37,7 +18,6 @@ export default async function handler(
           },
         });
         res.status(200).json({
-          columns,
           rows,
         });
       }
@@ -45,7 +25,6 @@ export default async function handler(
     case "POST":
       {
         const data = req.body;
-        data.supplierId = Number(data.supplierId);
         const rows = await prisma.item.create({ data });
 
         res.status(200).json(rows);
@@ -54,7 +33,6 @@ export default async function handler(
     case "PUT":
       {
         const data = omit(req.body, ["supplier"]);
-        data.supplierId = Number(data.supplierId);
         const rows = await prisma.item.update({
           data,
           where: { id: data.id },
