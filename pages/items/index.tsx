@@ -1,9 +1,10 @@
 import { NextPage } from "next";
-import Layout from "../components/Layout/components/Layout";
-import { ItemColumns } from "../data/columns";
-import useItems from "../data/useItems";
+import Layout from "../../components/Layout/components/Layout";
+import { ItemColumns } from "../../data/columns";
+import useItems from "../../data/useItems";
 import { Button } from "@material-ui/core";
 import { DataGrid } from "@material-ui/data-grid";
+import Link from "next/link";
 
 const Customer: NextPage = () => {
   const { data: items, mutate } = useItems();
@@ -31,18 +32,15 @@ const Customer: NextPage = () => {
   };
 
   return (
-    <Layout>
-      <section className="mb-4">
-        <Button
-          onClick={() => handleCreate()}
-          variant="contained"
-          color="primary"
-          disableElevation
-        >
-          新增
-        </Button>
+    <Layout className="space-y-2">
+      <section>
+        <Link href="/items/create" passHref>
+          <Button variant="contained" color="primary" disableElevation>
+            新增
+          </Button>
+        </Link>
       </section>
-      <DataGrid columns={ItemColumns} rows={items.rows}></DataGrid>
+      <DataGrid autoHeight columns={ItemColumns} rows={items.rows}></DataGrid>
     </Layout>
   );
 };

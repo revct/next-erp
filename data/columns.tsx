@@ -1,15 +1,26 @@
+/* eslint-disable react/display-name */
+import { Button } from "@material-ui/core";
+import Link from "next/link";
 import { GridColDef, GridColumnProp } from "@material-ui/data-grid";
-import { Person } from "@prisma/client";
 
 export const PersonColumns: GridColDef[] = [
   {
     field: "name",
-    headerName: "客户姓名",
+    headerName: "名称",
     flex: 1,
+    renderCell: ({ row }) => (
+      <div className="flex items-center">
+        <div className="flex-shrink-0 h-10 w-10 bg-green-500 rounded-full"></div>
+        <div className="ml-4">
+          <div className="text-sm font-medium text-gray-900">{row.name}</div>
+          <div className="text-sm text-gray-500">{row.phone}</div>
+        </div>
+      </div>
+    ),
   },
   {
-    field: "phone",
-    headerName: "联系方式",
+    field: "company",
+    headerName: "所属公司",
     flex: 1,
   },
   {
@@ -22,6 +33,18 @@ export const PersonColumns: GridColDef[] = [
     field: "remarks",
     headerName: "备注",
     flex: 1,
+  },
+  {
+    field: "id",
+    headerName: "操作",
+    width: 120,
+    sortable: false,
+    filterable: false,
+    renderCell: ({ value }) => (
+      <Link href={`/persons/${value}`} passHref>
+        <Button>编辑</Button>
+      </Link>
+    ),
   },
 ];
 

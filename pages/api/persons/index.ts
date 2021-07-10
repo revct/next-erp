@@ -29,7 +29,7 @@ export default async function handler(
       {
         const data = omit(req.body, []);
         const rows = await prisma.person.update({
-          data,
+          data: omit(data, "id"),
           where: { id: data.id },
         });
 

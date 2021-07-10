@@ -11,7 +11,13 @@ model Person {
   id        Int      @id @default(autoincrement())
   name      String?
   phone     String?
+  email     String?
+  company   String?
+  country   String?
+  state     String?
+  city      String?
   address   String?
+  zipcode   String?
   remarks   String?
   createdAt DateTime @default(now())
   Order     Order[]
