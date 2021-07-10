@@ -5,7 +5,16 @@ import { useRouter } from "next/dist/client/router";
 import { FunctionComponent, useEffect } from "react";
 import { Controller, useForm, useWatch } from "react-hook-form";
 
-type DefaultValueProps = Omit<Prisma.ItemUpdateInput, "Stock" | "Order">;
+type DefaultValueProps = {
+  id?: number;
+  name?: string | null;
+  code?: string | null;
+  specs?: string | null;
+  supplier: {
+    name: string;
+  };
+  supplierId?: number | null;
+};
 
 interface IProps extends React.HTMLAttributes<HTMLDivElement> {
   defaultValues?: DefaultValueProps;
@@ -17,7 +26,9 @@ const defaultData = {
   name: "",
   code: "",
   specs: "",
-  supplier: {},
+  supplier: {
+    name: "",
+  },
 } as DefaultValueProps;
 
 const PersonalInfoCard: FunctionComponent<IProps> = ({
@@ -100,38 +111,6 @@ const PersonalInfoCard: FunctionComponent<IProps> = ({
             control={control}
             render={({ field }) => (
               <TextField label="供应商" variant="outlined" {...field} />
-            )}
-          ></Controller>
-
-          <Controller
-            name="address"
-            control={control}
-            render={({ field }) => (
-              <TextField label="街道地址" variant="outlined" {...field} />
-            )}
-          ></Controller>
-
-          <Controller
-            name="city"
-            control={control}
-            render={({ field }) => (
-              <TextField label="城市" variant="outlined" {...field} />
-            )}
-          ></Controller>
-
-          <Controller
-            name="state"
-            control={control}
-            render={({ field }) => (
-              <TextField label="省/州" variant="outlined" {...field} />
-            )}
-          ></Controller>
-
-          <Controller
-            name="zipcode"
-            control={control}
-            render={({ field }) => (
-              <TextField label="邮政编码" variant="outlined" {...field} />
             )}
           ></Controller>
         </Box>
