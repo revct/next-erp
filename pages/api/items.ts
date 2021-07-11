@@ -25,8 +25,24 @@ export default async function handler(
     case "POST":
       {
         const data = req.body;
-        const rows = await prisma.item.create({ data });
 
+        const rows = await prisma.item.create({
+          data: {
+            name: data.name,
+            code: data.code,
+            specs: data.specs,
+            supplier: {
+              connectOrCreate: {
+                create: {
+                  phone: data?.supplier?.name,
+                },
+                where: {
+                  id: data.supplierId,
+                },
+              },
+            },
+          },
+        });
         res.status(200).json(rows);
       }
       break;

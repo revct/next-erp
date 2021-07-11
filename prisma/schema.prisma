@@ -7,7 +7,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Person {
+model Concat {
   id        Int      @id @default(autoincrement())
   name      String?
   phone     String?
@@ -20,20 +20,24 @@ model Person {
   zipcode   String?
   remarks   String?
   createdAt DateTime @default(now())
-  Order     Order[]
-  Item      Item[]
+}
+
+// 供应商信息
+model Supplier {
+  id        Int      @id @default(autoincrement())
+  name      String   @unique
+  phone     String?
+  remarks   String
+  createdAt DateTime @default(now())
 }
 
 model Item {
-  id         Int      @id @default(autoincrement())
-  name       String?
-  code       String?
-  specs      String?
-  supplierId Int?
-  supplier   Person?  @relation(fields: [supplierId], references: [id])
-  createdAt  DateTime @default(now())
-  Order      Order[]
-  Stock      Stock[]
+  id        Int      @id @default(autoincrement())
+  name      String?
+  code      String?
+  specs     String?
+  Supplier  String?
+  createdAt DateTime @default(now())
 }
 
 model Stock {
@@ -42,7 +46,6 @@ model Stock {
   number    Int?     @default(0)
   location  String?
   createdAt DateTime @default(now())
-  item      Item?    @relation(fields: [itemId], references: [id])
 }
 
 model Order {
@@ -52,6 +55,4 @@ model Order {
   itemId      Int?
   createdAt   DateTime @default(now())
   deliveredAt DateTime @default(now())
-  Customer    Person?  @relation(fields: [customerId], references: [id])
-  Item        Item?    @relation(fields: [itemId], references: [id])
 }

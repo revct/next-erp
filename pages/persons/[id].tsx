@@ -1,6 +1,5 @@
 import Layout from "@/components/Layout/components/Layout";
 import usePersons from "@/data/usePersons";
-import { Person, Prisma } from "@prisma/client";
 import { NextPage } from "next";
 import { useRouter } from "next/dist/client/router";
 import PersonalInfoCard from "./_components/PersonFormCard";

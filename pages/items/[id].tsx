@@ -39,7 +39,7 @@ const PersonDetailPage = () => {
 
   return (
     <Layout>
-      <div className="container mx-auto flex justify-center items-center">
+      <div className="container mx-auto justify-center items-center">
         <FormCard
           defaultValues={data}
           onSubmit={(data) => handleSave(data)}

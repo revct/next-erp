@@ -1,7 +1,7 @@
 import { NextPage } from "next";
-import Layout from "../../components/Layout/components/Layout";
-import { ItemColumns } from "../../data/columns";
-import useItems from "../../data/useItems";
+import Layout from "@/components/Layout/components/Layout";
+import { ItemColumns } from "@/data/columns";
+import { useItems } from "@/data/items";
 import { Button } from "@material-ui/core";
 import { DataGrid } from "@material-ui/data-grid";
 import Link from "next/link";

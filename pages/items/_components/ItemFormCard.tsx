@@ -1,9 +1,16 @@
-import { Box, Button, MenuItem, Paper, TextField } from "@material-ui/core";
-import { Item, Prisma } from "@prisma/client";
-import { cloneDeep, forEach, isFunction } from "lodash";
+import { cloneDeep, isFunction } from "lodash";
 import { useRouter } from "next/dist/client/router";
-import { FunctionComponent, useEffect } from "react";
-import { Controller, useForm, useWatch } from "react-hook-form";
+import { FunctionComponent, useEffect, useState } from "react";
+import { Controller, useForm } from "react-hook-form";
+import {
+  Box,
+  Button,
+  TextField,
+  Card,
+  CardContent,
+  CardHeader,
+} from "@material-ui/core";
+import { createItem, updateItem } from "@/data/items";
 
 type DefaultValueProps = {
   id?: number;
@@ -46,14 +53,14 @@ const PersonalInfoCard: FunctionComponent<IProps> = ({
     }
   }, [loading, reset, defaultValues]);
 
+  const [isLoading, setLoading] = useState(false);
   const handleCreate = async (data = {}) => {
-    await fetch("/api/persons", {
-      method: "post",
-      body: JSON.stringify(data),
-      headers: {
-        "content-type": "application/json",
-      },
-    });
+    setLoading(true);
+    try {
+      await createItem(data);
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleSave = async (data: any) => {
@@ -70,18 +77,19 @@ const PersonalInfoCard: FunctionComponent<IProps> = ({
   };
 
   const handleUpdate = async (data: any) => {
-    await fetch("/api/persons", {
-      method: "put",
-      body: JSON.stringify(data),
-      headers: {
-        "content-type": "application/json",
-      },
-    });
+    setLoading(true);
+    try {
+      await updateItem(data);
+    } finally {
+      setLoading(false);
+    }
   };
+
   return (
-    <Paper>
-      <Box component="form" onSubmit={handleSubmit(handleSave)}>
-        <Box className="px-4 py-5 bg-white grid grid-cols-2 gap-6">
+    <form onSubmit={handleSubmit(handleSave)} className="space-y-4">
+      <Card>
+        <CardHeader title="物料信息"></CardHeader>
+        <CardContent className="grid grid-cols-3 gap-4">
           <Controller
             name="name"
             control={control}
@@ -113,14 +121,23 @@ const PersonalInfoCard: FunctionComponent<IProps> = ({
               <TextField label="供应商" variant="outlined" {...field} />
             )}
           ></Controller>
-        </Box>
-        <Box className="px-4 py-3 bg-gray-50 text-right">
-          <Button color="primary" variant="contained" type="submit">
-            保存
-          </Button>
-        </Box>
+        </CardContent>
+      </Card>
+      <Card>
+        <CardHeader title="供应商信息"></CardHeader>
+        <CardContent></CardContent>
+      </Card>
+      <Box className="px-4 py-3 bg-gray-50 text-right">
+        <Button
+          color="primary"
+          variant="contained"
+          type="submit"
+          disabled={isLoading}
+        >
+          保存
+        </Button>
       </Box>
-    </Paper>
+    </form>
   );
 };
 
