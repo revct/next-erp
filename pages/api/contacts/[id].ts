@@ -14,7 +14,7 @@ export default async function handler(
       {
         const { id } = req.query;
 
-        const data = await prisma.person.findUnique({
+        const data = await prisma.contact.findUnique({
           where: {
             id: Number(id),
           },

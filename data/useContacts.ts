@@ -1,7 +1,7 @@
 import useSWR, { SWRConfiguration } from "swr";
 
-const usePersons = (id?: unknown) => {
-  let url = "/api/persons";
+const useContacts = (id?: unknown) => {
+  let url = "/api/contacts";
   let config: SWRConfiguration = {};
   if (id) {
     url = `${url}/${id}`;
@@ -17,4 +17,4 @@ const usePersons = (id?: unknown) => {
   };
 };
 
-export default usePersons;
+export default useContacts;

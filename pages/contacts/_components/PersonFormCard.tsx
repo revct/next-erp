@@ -42,7 +42,7 @@ const PersonalInfoCard: FunctionComponent<IProps> = ({
   }, [loading, reset, defaultValues]);
 
   const handleCreate = async (data = {}) => {
-    await fetch("/api/persons", {
+    await fetch("/api/contacts", {
       method: "post",
       body: JSON.stringify(data),
       headers: {
@@ -65,7 +65,7 @@ const PersonalInfoCard: FunctionComponent<IProps> = ({
   };
 
   const handleUpdate = async (data: any) => {
-    await fetch("/api/persons", {
+    await fetch("/api/contacts", {
       method: "put",
       body: JSON.stringify(data),
       headers: {

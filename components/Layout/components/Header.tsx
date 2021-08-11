@@ -5,9 +5,9 @@ import { useEffect, useState } from "react";
 
 const menus = [
   {
-    key: "person",
+    key: "contacts",
     name: "联系人管理",
-    path: "/persons",
+    path: "/contacts",
   },
   {
     key: "items",

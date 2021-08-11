@@ -41,7 +41,7 @@ export const PersonColumns: GridColDef[] = [
     sortable: false,
     filterable: false,
     renderCell: ({ value }) => (
-      <Link href={`/persons/${value}`} passHref>
+      <Link href={`/contacts/${value}`} passHref>
         <Button>编辑</Button>
       </Link>
     ),

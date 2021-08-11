@@ -1,15 +1,15 @@
 import Layout from "@/components/Layout/components/Layout";
-import usePersons from "@/data/usePersons";
+import userContacts from "@/data/useContacts";
 import { useRouter } from "next/dist/client/router";
 import FormCard from "./_components/ItemFormCard";
 
 const PersonDetailPage = () => {
   const router = useRouter();
   const { id } = router.query;
-  const { data, isValidating, mutate } = usePersons(id);
+  const { data, isValidating, mutate } = userContacts(id);
 
   const handleCreate = async (data = {}) => {
-    await fetch("/api/persons", {
+    await fetch("/api/contacts", {
       method: "post",
       body: JSON.stringify(data),
       headers: {
@@ -28,7 +28,7 @@ const PersonDetailPage = () => {
   };
 
   const handleUpdate = async (data: any) => {
-    await fetch("/api/persons", {
+    await fetch("/api/contacts", {
       method: "put",
       body: JSON.stringify(data),
       headers: {

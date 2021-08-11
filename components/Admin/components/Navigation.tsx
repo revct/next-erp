@@ -1,17 +1,19 @@
 import { menuAtom } from "@/store/config";
+import { CONFIG, MENUS } from "@/store/constant";
 import { useAtom } from "jotai";
 import { useRouter } from "next/dist/client/router";
 import Link from "next/link";
 
 const Navigation = () => {
   const { asPath } = useRouter();
-  const [menus] = useAtom(menuAtom);
+  const menus = MENUS;
+  const config = CONFIG;
   return (
     <div className="bg-white h-full dark:bg-gray-700">
-      <div className="flex items-center justify-start pt-6 ml-8">
-        <p className="font-bold dark:text-white text-xl">Plannifer</p>
+      <div className="flex items-center justify-start py-6 pl-8">
+        <p className="font-bold dark:text-white text-xl">{config.appName}</p>
       </div>
-      <nav className="mt-6">
+      <nav>
         <div>
           {menus.map((menu) => {
             const isActive = asPath === menu.path;

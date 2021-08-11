@@ -1,7 +1,8 @@
-import { useContext } from "react";
+import { Fragment } from "react";
 import Image from "next/image";
 import { useAtom } from "jotai";
 import { userAtom } from "@/store/user";
+import { Menu, Transition } from "@headlessui/react";
 interface Props {}
 
 const Header = (props: Props) => {
@@ -22,7 +23,7 @@ const Header = (props: Props) => {
             <span className="iconify" data-icon="bx:bxs-bell"></span>
           </button>
           <span className="w-1 h-8 rounded-lg bg-gray-200"></span>
-          <a href="#" className="block relative">
+          <div>
             <Image
               alt="profile"
               className="mx-auto object-cover rounded-full"
@@ -30,11 +31,48 @@ const Header = (props: Props) => {
               width={40}
               height={40}
             />
-          </a>
-          <button className="flex items-center text-gray-500 dark:text-white text-md space-x-2">
-            <span>{user.nickname}</span>
-            <span className="iconify" data-icon="ls:dropdown"></span>
-          </button>
+          </div>
+          <Menu as="div" className="relative inline-block text-left">
+            <Menu.Button className="flex items-center text-gray-500 dark:text-white text-md space-x-2">
+              <span>{user.nickname}</span>
+              <span className="iconify" data-icon="ls:dropdown"></span>
+            </Menu.Button>
+            <Transition
+              enter="transition ease-out duration-100"
+              enterFrom="transform opacity-0 scale-95"
+              enterTo="transform opacity-100 scale-100"
+              leave="transition ease-in duration-75"
+              leaveFrom="transform opacity-100 scale-100"
+              leaveTo="transform opacity-0 scale-95"
+            >
+              <Menu.Items className="absolute right-0 w-24 mt-2 origin-top-right bg-white divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                <div className="p-1">
+                  <Menu.Item>
+                    {({ active }) => (
+                      <button
+                        className={`${
+                          active ? "bg-purple-500 text-white" : "text-gray-900"
+                        } group flex rounded-md items-center w-full px-2 py-2 text-sm`}
+                      >
+                        个人中心
+                      </button>
+                    )}
+                  </Menu.Item>
+                  <Menu.Item>
+                    {({ active }) => (
+                      <button
+                        className={`${
+                          active ? "bg-purple-500 text-white" : "text-gray-900"
+                        } group flex rounded-md items-center w-full px-2 py-2 text-sm`}
+                      >
+                        退出
+                      </button>
+                    )}
+                  </Menu.Item>
+                </div>
+              </Menu.Items>
+            </Transition>
+          </Menu>
         </div>
       </div>
     </header>
