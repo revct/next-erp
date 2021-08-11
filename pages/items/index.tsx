@@ -5,6 +5,7 @@ import { useItems } from "@/data/items";
 import { Button } from "@material-ui/core";
 import { DataGrid } from "@material-ui/data-grid";
 import Link from "next/link";
+import Admin from "@/components/Admin";
 
 const Customer: NextPage = () => {
   const { data: items, mutate } = useItems();
@@ -32,7 +33,7 @@ const Customer: NextPage = () => {
   };
 
   return (
-    <Layout className="space-y-2">
+    <Admin>
       <section>
         <Link href="/items/create" passHref>
           <Button variant="contained" color="primary" disableElevation>
@@ -41,7 +42,7 @@ const Customer: NextPage = () => {
         </Link>
       </section>
       <DataGrid autoHeight columns={ItemColumns} rows={items.rows}></DataGrid>
-    </Layout>
+    </Admin>
   );
 };
 

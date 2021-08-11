@@ -1,7 +1,7 @@
+import Admin from "@/components/Admin";
 import { Button } from "@material-ui/core";
 import { DataGrid } from "@material-ui/data-grid";
 import { NextPage } from "next";
-import Layout from "../components/Layout/components/Layout";
 import { StockColumns } from "../data/columns";
 import useStocks from "../data/useStocks";
 
@@ -31,7 +31,7 @@ const Customer: NextPage = () => {
   };
 
   return (
-    <Layout>
+    <Admin>
       <section className="mb-4">
         <Button
           onClick={() => handleCreate()}
@@ -43,7 +43,7 @@ const Customer: NextPage = () => {
         </Button>
       </section>
       <DataGrid columns={StockColumns} rows={stocks.rows}></DataGrid>
-    </Layout>
+    </Admin>
   );
 };
 

@@ -1,7 +1,7 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 
-import { Person, PrismaClient } from "@prisma/client";
-import { omit, pick } from "lodash";
+import { PrismaClient } from "@prisma/client";
+import { pick } from "lodash";
 import type { NextApiRequest, NextApiResponse } from "next";
 const prisma = new PrismaClient();
 
@@ -12,11 +12,7 @@ export default async function handler(
   switch (req.method) {
     case "GET":
       {
-        const rows = await prisma.stock.findMany({
-          include: {
-            item: true,
-          },
-        });
+        const rows = await prisma.stock.findMany();
         res.status(200).json({
           rows,
         });

@@ -31,11 +31,6 @@ const Header = () => {
   const isActive = (path: string) => {
     return router.route === path;
   };
-  const user = {
-    account: "name",
-  };
-
-  const [open, { toggle }] = useToggle();
 
   return (
     <nav className="bg-gray-800">

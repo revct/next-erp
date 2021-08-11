@@ -12,7 +12,7 @@ export default async function handler(
   switch (req.method) {
     case "GET":
       {
-        const rows = await prisma.person.findMany();
+        const rows = await prisma.contact.findMany();
         res.status(200).json({
           rows,
         });
@@ -21,14 +21,14 @@ export default async function handler(
     case "POST":
       {
         const data = req.body;
-        const rows = await prisma.person.create({ data });
+        const rows = await prisma.contact.create({ data });
         res.status(200).json(rows);
       }
       break;
     case "PUT":
       {
         const data = omit(req.body, []);
-        const rows = await prisma.person.update({
+        const rows = await prisma.contact.update({
           data: omit(data, "id"),
           where: { id: data.id },
         });

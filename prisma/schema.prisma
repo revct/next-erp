@@ -3,11 +3,11 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "sqlite"
   url      = env("DATABASE_URL")
 }
 
-model Concat {
+model Contact {
   id        Int      @id @default(autoincrement())
   name      String?
   phone     String?
