@@ -1,7 +1,7 @@
-import { DataGrid } from "@material-ui/data-grid";
+import Admin from "@/components/Admin";
+import Table from "@/components/Table";
 import { NextPage } from "next";
 import { useEffect, useState } from "react";
-import Layout from "../components/Layout/components/Layout";
 
 const Customer: NextPage = () => {
   const [table, setTable] = useState({
@@ -20,9 +20,9 @@ const Customer: NextPage = () => {
   }, []);
 
   return (
-    <Layout>
-      <DataGrid columns={table.columns} rows={table.rows} />
-    </Layout>
+    <Admin>
+      <Table columns={table.columns} rows={table.rows} />
+    </Admin>
   );
 };
 

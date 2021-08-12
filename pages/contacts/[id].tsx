@@ -1,8 +1,9 @@
+import Admin from "@/components/Admin";
 import Layout from "@/components/Layout/components/Layout";
 import userContacts from "@/data/useContacts";
 import { NextPage } from "next";
 import { useRouter } from "next/dist/client/router";
-import PersonalInfoCard from "./_components/PersonFormCard";
+import PersonalInfoCard from "./_src/ContactFormCard";
 
 const PersonDetailPage: NextPage = () => {
   const router = useRouter();
@@ -39,15 +40,13 @@ const PersonDetailPage: NextPage = () => {
   };
 
   return (
-    <Layout>
-      <div className="container mx-auto flex justify-center items-center">
-        <PersonalInfoCard
-          loading={isValidating}
-          defaultValues={data}
-          onSubmit={(data) => handleSave(data)}
-        ></PersonalInfoCard>
-      </div>
-    </Layout>
+    <Admin>
+      <PersonalInfoCard
+        loading={isValidating}
+        defaultValues={data}
+        onSubmit={(data) => handleSave(data)}
+      ></PersonalInfoCard>
+    </Admin>
   );
 };
 

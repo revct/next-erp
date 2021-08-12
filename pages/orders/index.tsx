@@ -1,8 +1,8 @@
 import Admin from "@/components/Admin";
-import { DataGrid } from "@material-ui/data-grid";
+import Table from "@/components/Table";
 import { NextPage } from "next";
 import { useEffect, useState } from "react";
-import { OrderColumns } from "../data/columns";
+import { OrderColumns } from "./_src/OrderColumns";
 
 const Customer: NextPage = () => {
   const [table, setTable] = useState({
@@ -21,7 +21,7 @@ const Customer: NextPage = () => {
 
   return (
     <Admin>
-      <DataGrid columns={OrderColumns} rows={table.rows} />
+      <Table columns={OrderColumns} rows={table.rows} />
     </Admin>
   );
 };

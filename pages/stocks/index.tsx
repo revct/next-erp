@@ -1,9 +1,8 @@
 import Admin from "@/components/Admin";
-import { Button } from "@material-ui/core";
-import { DataGrid } from "@material-ui/data-grid";
 import { NextPage } from "next";
-import { StockColumns } from "../data/columns";
-import useStocks from "../data/useStocks";
+import { StockColumns } from "./_src/StockColumns";
+import useStocks from "../../data/useStocks";
+import Table from "@/components/Table";
 
 const Customer: NextPage = () => {
   const { data: stocks, mutate } = useStocks();
@@ -33,16 +32,9 @@ const Customer: NextPage = () => {
   return (
     <Admin>
       <section className="mb-4">
-        <Button
-          onClick={() => handleCreate()}
-          variant="contained"
-          color="primary"
-          disableElevation
-        >
-          新增
-        </Button>
+        <button onClick={() => handleCreate()}>新增</button>
       </section>
-      <DataGrid columns={StockColumns} rows={stocks.rows}></DataGrid>
+      <Table columns={StockColumns} rows={stocks.rows}></Table>
     </Admin>
   );
 };

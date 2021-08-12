@@ -1,6 +1,5 @@
 import { menuAtom } from "@/store/config";
 import { CONFIG, MENUS } from "@/store/constant";
-import { useAtom } from "jotai";
 import { useRouter } from "next/dist/client/router";
 import Link from "next/link";
 

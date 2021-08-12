@@ -1,15 +1,7 @@
-import { cloneDeep, isFunction } from "lodash";
+import { cloneDeep, isFunction } from "lodash-es";
 import { useRouter } from "next/dist/client/router";
 import { FunctionComponent, useEffect, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
-import {
-  Box,
-  Button,
-  TextField,
-  Card,
-  CardContent,
-  CardHeader,
-} from "@material-ui/core";
 import { createItem, updateItem } from "@/data/items";
 
 type DefaultValueProps = {
@@ -87,56 +79,41 @@ const PersonalInfoCard: FunctionComponent<IProps> = ({
 
   return (
     <form onSubmit={handleSubmit(handleSave)} className="space-y-4">
-      <Card>
-        <CardHeader title="物料信息"></CardHeader>
-        <CardContent className="grid grid-cols-3 gap-4">
+      <div>
+        <div>物料信息</div>
+        <div className="grid grid-cols-3 gap-4">
           <Controller
             name="name"
             control={control}
-            render={({ field }) => (
-              <TextField label="品名" variant="outlined" {...field} />
-            )}
+            render={({ field }) => <input placeholder="品名" {...field} />}
           ></Controller>
 
           <Controller
             name="specs"
             control={control}
-            render={({ field }) => (
-              <TextField label="电话" variant="outlined" {...field} />
-            )}
+            render={({ field }) => <input placeholder="电话" {...field} />}
           ></Controller>
 
           <Controller
             name="specs"
             control={control}
-            render={({ field }) => (
-              <TextField label="所属公司" variant="outlined" {...field} />
-            )}
+            render={({ field }) => <input placeholder="所属公司" {...field} />}
           ></Controller>
 
           <Controller
             name="supplier.name"
             control={control}
-            render={({ field }) => (
-              <TextField label="供应商" variant="outlined" {...field} />
-            )}
+            render={({ field }) => <input placeholder="供应商" {...field} />}
           ></Controller>
-        </CardContent>
-      </Card>
-      <Card>
-        <CardHeader title="供应商信息"></CardHeader>
-        <CardContent></CardContent>
-      </Card>
-      <Box className="px-4 py-3 bg-gray-50 text-right">
-        <Button
-          color="primary"
-          variant="contained"
-          type="submit"
-          disabled={isLoading}
-        >
-          保存
-        </Button>
-      </Box>
+        </div>
+      </div>
+      <div>
+        <div>供应商信息</div>
+        <div></div>
+      </div>
+      <div className="px-4 py-3 bg-gray-50 text-right">
+        <button disabled={isLoading}>保存</button>
+      </div>
     </form>
   );
 };

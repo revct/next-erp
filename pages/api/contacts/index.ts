@@ -2,7 +2,7 @@
 
 import { PrismaClient } from "@prisma/client";
 import type { NextApiRequest, NextApiResponse } from "next";
-import { omit } from "lodash";
+import { omit } from "lodash-es";
 const prisma = new PrismaClient();
 
 export default async function handler(

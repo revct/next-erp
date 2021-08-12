@@ -1,9 +1,18 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 
-import { PrismaClient } from "@prisma/client";
+import { PrismaClient, Prisma } from "@prisma/client";
 import type { NextApiRequest, NextApiResponse } from "next";
-import { omit } from "lodash";
+import { omit } from "lodash-es";
 const prisma = new PrismaClient();
+
+const findContactOne = async (id: number) => {
+  const data = await prisma.contact.findUnique({
+    where: {
+      id: Number(id),
+    },
+  });
+  return data;
+};
 
 export default async function handler(
   req: NextApiRequest,
@@ -13,12 +22,7 @@ export default async function handler(
     case "GET":
       {
         const { id } = req.query;
-
-        const data = await prisma.contact.findUnique({
-          where: {
-            id: Number(id),
-          },
-        });
+        const data = await findContactOne(Number(id));
         res.status(200).json(data);
       }
       break;

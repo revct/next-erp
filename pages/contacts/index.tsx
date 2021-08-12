@@ -1,30 +1,14 @@
-import { DataGrid } from "@material-ui/data-grid";
 import { NextPage } from "next";
-import { PersonColumns } from "@/data/columns";
-import userContacts from "@/data/useContacts";
-import { Button } from "@material-ui/core";
-import Link from "next/link";
+
 import Admin from "@/components/Admin";
+import ContactList from "./_src/ContactList";
 
-const Customer: NextPage = () => {
-  const { data, mutate } = userContacts();
-
+const ContactPage: NextPage = () => {
   return (
     <Admin>
-      <div className=" space-y-2">
-        <Link href="/contacts/create" passHref>
-          <Button color="primary" variant="contained" disableElevation>
-            新增
-          </Button>
-        </Link>
-        <DataGrid
-          autoHeight
-          columns={PersonColumns}
-          rows={data.rows}
-        ></DataGrid>
-      </div>
+      <ContactList></ContactList>
     </Admin>
   );
 };
 
-export default Customer;
+export default ContactPage;

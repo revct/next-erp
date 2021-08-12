@@ -1,18 +1,12 @@
-import Layout from "@/components/Layout/components/Layout";
-import userContacts from "@/data/useContacts";
-import { useRouter } from "next/dist/client/router";
+import Admin from "@/components/Admin";
 import FormCard from "./_components/ItemFormCard";
 
-const PersonDetailPage = () => {
-  const router = useRouter();
-  const { id } = router.query;
+const ContactCreate = () => {
   return (
-    <Layout>
-      <div className="container mx-auto">
-        <FormCard></FormCard>
-      </div>
-    </Layout>
+    <Admin>
+      <FormCard></FormCard>
+    </Admin>
   );
 };
 
-export default PersonDetailPage;
+export default ContactCreate;

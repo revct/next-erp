@@ -1,17 +1,12 @@
-import Layout from "@/components/Layout/components/Layout";
-import { useRouter } from "next/dist/client/router";
-import PersonalInfoCard from "./_components/PersonFormCard";
+import Admin from "@/components/Admin";
+import ContactForm from "./_src/ContactFormCard";
 
-const PersonDetailPage = () => {
-  const router = useRouter();
-
+const ContactShow = () => {
   return (
-    <Layout>
-      <div className="container mx-auto flex justify-center items-center">
-        <PersonalInfoCard></PersonalInfoCard>
-      </div>
-    </Layout>
+    <Admin>
+      <ContactForm></ContactForm>
+    </Admin>
   );
 };
 
-export default PersonDetailPage;
+export default ContactShow;

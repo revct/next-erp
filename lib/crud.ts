@@ -1,6 +1,6 @@
 import { PrismaClient, Prisma } from "@prisma/client";
 import { PrismaClientOptions } from "@prisma/client/runtime";
-import { omit } from "lodash";
+import { omit } from "lodash-es";
 import { NextApiRequest, NextApiResponse } from "next";
 import prisma from "./prisma";
 

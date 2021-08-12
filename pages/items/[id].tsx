@@ -1,4 +1,4 @@
-import Layout from "@/components/Layout/components/Layout";
+import Admin from "@/components/Admin";
 import userContacts from "@/data/useContacts";
 import { useRouter } from "next/dist/client/router";
 import FormCard from "./_components/ItemFormCard";
@@ -38,14 +38,12 @@ const PersonDetailPage = () => {
   };
 
   return (
-    <Layout>
-      <div className="container mx-auto justify-center items-center">
-        <FormCard
-          defaultValues={data}
-          onSubmit={(data) => handleSave(data)}
-        ></FormCard>
-      </div>
-    </Layout>
+    <Admin>
+      <FormCard
+        defaultValues={data}
+        onSubmit={(data) => handleSave(data)}
+      ></FormCard>
+    </Admin>
   );
 };
 
