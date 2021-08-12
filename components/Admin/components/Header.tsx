@@ -51,8 +51,8 @@ const Header = (props: Props) => {
                     {({ active }) => (
                       <button
                         className={`${
-                          active ? "bg-purple-500 text-white" : "text-gray-900"
-                        } group flex rounded-md items-center w-full px-2 py-2 text-sm`}
+                          active ? "bg-gray-100" : ""
+                        } group flex rounded-md items-center w-full px-2 py-2 text-sm text-gray-500`}
                       >
                         个人中心
                       </button>
@@ -62,8 +62,8 @@ const Header = (props: Props) => {
                     {({ active }) => (
                       <button
                         className={`${
-                          active ? "bg-purple-500 text-white" : "text-gray-900"
-                        } group flex rounded-md items-center w-full px-2 py-2 text-sm`}
+                          active ? "bg-gray-100" : ""
+                        } group flex rounded-md items-center w-full px-2 py-2 text-sm text-gray-500`}
                       >
                         退出
                       </button>

@@ -6,7 +6,7 @@ export const MENUS = [
     icon: "ic:round-dashboard",
   },
   {
-    key: "person",
+    key: "contacts",
     name: "联系人管理",
     path: "/contacts",
     icon: "bx:bxs-contact",

@@ -30,7 +30,7 @@ const defaultData = {
   },
 } as DefaultValueProps;
 
-const PersonalInfoCard: FunctionComponent<IProps> = ({
+const ItemForm: FunctionComponent<IProps> = ({
   defaultValues,
   onSubmit,
   loading,
@@ -118,4 +118,4 @@ const PersonalInfoCard: FunctionComponent<IProps> = ({
   );
 };
 
-export default PersonalInfoCard;
+export default ItemForm;

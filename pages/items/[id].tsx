@@ -3,7 +3,7 @@ import userContacts from "@/data/useContacts";
 import { useRouter } from "next/dist/client/router";
 import FormCard from "./_components/ItemFormCard";
 
-const PersonDetailPage = () => {
+const ItemShowPage = () => {
   const router = useRouter();
   const { id } = router.query;
   const { data, isValidating, mutate } = userContacts(id);
@@ -47,4 +47,4 @@ const PersonDetailPage = () => {
   );
 };
 
-export default PersonDetailPage;
+export default ItemShowPage;

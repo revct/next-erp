@@ -25,7 +25,7 @@ const defaultData = {
   zipcode: "",
 } as DefaultValueProps;
 
-const PersonalInfoCard: FunctionComponent<IProps> = ({
+const ContactForm: FunctionComponent<IProps> = ({
   defaultValues,
   onSubmit,
   loading,
@@ -132,4 +132,4 @@ const PersonalInfoCard: FunctionComponent<IProps> = ({
   );
 };
 
-export default PersonalInfoCard;
+export default ContactForm;

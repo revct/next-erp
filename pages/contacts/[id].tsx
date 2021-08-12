@@ -3,9 +3,9 @@ import Layout from "@/components/Layout/components/Layout";
 import userContacts from "@/data/useContacts";
 import { NextPage } from "next";
 import { useRouter } from "next/dist/client/router";
-import PersonalInfoCard from "./_src/ContactFormCard";
+import ContactForm from "./_src/ContactFormCard";
 
-const PersonDetailPage: NextPage = () => {
+const ContactShowPage: NextPage = () => {
   const router = useRouter();
   const { id } = router.query;
   const { data, isValidating, mutate } = userContacts(id);
@@ -41,13 +41,13 @@ const PersonDetailPage: NextPage = () => {
 
   return (
     <Admin>
-      <PersonalInfoCard
+      <ContactForm
         loading={isValidating}
         defaultValues={data}
         onSubmit={(data) => handleSave(data)}
-      ></PersonalInfoCard>
+      ></ContactForm>
     </Admin>
   );
 };
 
-export default PersonDetailPage;
+export default ContactShowPage;

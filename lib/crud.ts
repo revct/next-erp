@@ -1,5 +1,4 @@
-import { PrismaClient, Prisma } from "@prisma/client";
-import { PrismaClientOptions } from "@prisma/client/runtime";
+import { Prisma } from "@prisma/client";
 import { omit } from "lodash-es";
 import { NextApiRequest, NextApiResponse } from "next";
 import prisma from "./prisma";
@@ -23,14 +22,14 @@ const CRUD = (params: CRUDParams) => {
       case "POST":
         {
           const data = req.body;
-          const rows = await prisma.person.create({ data });
+          const rows = await prisma.contact.create({ data });
           res.status(200).json(rows);
         }
         break;
       case "PUT":
         {
           const data = omit(req.body, []);
-          const rows = await prisma.person.update({
+          const rows = await prisma.contact.update({
             data: omit(data, "id"),
             where: { id: data.id },
           });
