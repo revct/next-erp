@@ -7,6 +7,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+// 联系人
 model Contact {
   id        Int      @id @default(autoincrement())
   name      String?
@@ -31,6 +32,7 @@ model Supplier {
   createdAt DateTime @default(now())
 }
 
+// 物料
 model Item {
   id        Int      @id @default(autoincrement())
   name      String?
@@ -40,6 +42,7 @@ model Item {
   createdAt DateTime @default(now())
 }
 
+// 库存
 model Stock {
   id        Int      @id @default(autoincrement())
   itemId    Int?
@@ -48,6 +51,7 @@ model Stock {
   createdAt DateTime @default(now())
 }
 
+// 订单
 model Order {
   id          Int      @id @default(autoincrement())
   status      String
@@ -55,4 +59,15 @@ model Order {
   itemId      Int?
   createdAt   DateTime @default(now())
   deliveredAt DateTime @default(now())
+}
+
+// 登录用户信息
+model User {
+  id    Int     @id @default(autoincrement())
+  email String?
+  name  String?
+  role  String? @default("USER")
+  phone String?
+  hash  String
+  salt  String
 }
