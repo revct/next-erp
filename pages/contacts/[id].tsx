@@ -1,5 +1,4 @@
 import Admin from "@/components/Admin";
-import Layout from "@/components/Layout/components/Layout";
 import userContacts from "@/data/useContacts";
 import { NextPage } from "next";
 import { useRouter } from "next/dist/client/router";

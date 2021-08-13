@@ -3,6 +3,7 @@ import { useRouter } from "next/dist/client/router";
 import { FunctionComponent, useEffect, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { createItem, updateItem } from "@/data/items";
+import { Input } from "@chakra-ui/react";
 
 type DefaultValueProps = {
   id?: number;
@@ -36,7 +37,7 @@ const ItemForm: FunctionComponent<IProps> = ({
   loading,
 }) => {
   const router = useRouter();
-  const { handleSubmit, control, reset } = useForm({
+  const { handleSubmit, control, reset, register } = useForm({
     defaultValues: defaultData,
   });
   useEffect(() => {
@@ -85,25 +86,33 @@ const ItemForm: FunctionComponent<IProps> = ({
           <Controller
             name="name"
             control={control}
-            render={({ field }) => <input placeholder="品名" {...field} />}
+            render={({ field }) => (
+              <Input placeholder="品名" {...register("name")} />
+            )}
           ></Controller>
 
           <Controller
             name="specs"
             control={control}
-            render={({ field }) => <input placeholder="电话" {...field} />}
+            render={({ field }) => (
+              <Input placeholder="电话" {...register("specs")} />
+            )}
           ></Controller>
 
           <Controller
             name="specs"
             control={control}
-            render={({ field }) => <input placeholder="所属公司" {...field} />}
+            render={({ field }) => (
+              <Input placeholder="所属公司" {...register("specs")} />
+            )}
           ></Controller>
 
           <Controller
             name="supplier.name"
             control={control}
-            render={({ field }) => <input placeholder="供应商" {...field} />}
+            render={({ field }) => (
+              <Input placeholder="供应商" {...register("supplier")} />
+            )}
           ></Controller>
         </div>
       </div>

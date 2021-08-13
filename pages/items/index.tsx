@@ -1,5 +1,4 @@
 import { NextPage } from "next";
-import Layout from "@/components/Layout/components/Layout";
 import { ItemColumns } from "@/pages/items/_components/ItemColumns";
 import { useItems } from "@/data/items";
 import Link from "next/link";

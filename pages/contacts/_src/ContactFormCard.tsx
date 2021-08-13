@@ -2,7 +2,7 @@ import { Contact } from "@prisma/client";
 import { cloneDeep, isFunction } from "lodash-es";
 import { useRouter } from "next/dist/client/router";
 import { FunctionComponent, useEffect } from "react";
-import { Controller, useForm, useWatch } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 
 type DefaultValueProps = Contact;
 
@@ -31,7 +31,7 @@ const ContactForm: FunctionComponent<IProps> = ({
   loading,
 }) => {
   const router = useRouter();
-  const { handleSubmit, control, reset } = useForm({
+  const { handleSubmit, control, reset, register } = useForm({
     defaultValues: defaultData,
   });
   useEffect(() => {
@@ -75,55 +75,14 @@ const ContactForm: FunctionComponent<IProps> = ({
   return (
     <form onSubmit={handleSubmit(handleSave)}>
       <div className="px-4 py-5 bg-white grid grid-cols-2 gap-6">
-        <Controller
-          name="name"
-          control={control}
-          render={({ field }) => <input placeholder="姓名" {...field} />}
-        ></Controller>
-
-        <Controller
-          name="phone"
-          control={control}
-          render={({ field }) => <input placeholder="电话" {...field} />}
-        ></Controller>
-
-        <Controller
-          name="company"
-          control={control}
-          render={({ field }) => <input placeholder="所属公司" {...field} />}
-        ></Controller>
-
-        <Controller
-          name="email"
-          control={control}
-          render={({ field }) => (
-            <input placeholder="邮箱" type="email" {...field} />
-          )}
-        ></Controller>
-
-        <Controller
-          name="address"
-          control={control}
-          render={({ field }) => <input placeholder="街道地址" {...field} />}
-        ></Controller>
-
-        <Controller
-          name="city"
-          control={control}
-          render={({ field }) => <input placeholder="城市" {...field} />}
-        ></Controller>
-
-        <Controller
-          name="state"
-          control={control}
-          render={({ field }) => <input placeholder="省/州" {...field} />}
-        ></Controller>
-
-        <Controller
-          name="zipcode"
-          control={control}
-          render={({ field }) => <input placeholder="邮政编码" {...field} />}
-        ></Controller>
+        <input placeholder="姓名" {...register("name")} />
+        <input placeholder="电话" {...register("phone")} />
+        <input placeholder="所属公司" {...register("company")} />
+        <input placeholder="邮箱" {...register("email")} />
+        <input placeholder="街道地址" {...register("address")} />
+        <input placeholder="城市" {...register("city")} />
+        <input placeholder="省/州" {...register("state")} />
+        <input placeholder="邮政编码" {...register("zipcode")} />
       </div>
       <div className="px-4 py-3 bg-gray-50 text-right">
         <button>保存</button>
