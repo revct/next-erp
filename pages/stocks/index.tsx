@@ -1,7 +1,7 @@
 import Admin from "@/components/Admin";
 import { NextPage } from "next";
-import { StockColumns } from "./_src/StockColumns";
-import useStocks from "../../data/useStocks";
+import { StockColumns } from "@/components/Stock/StockColumns";
+import useStocks from "@/data/useStocks";
 import Table from "@/components/Table";
 
 const Customer: NextPage = () => {

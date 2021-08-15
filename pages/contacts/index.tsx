@@ -1,7 +1,7 @@
 import { NextPage } from "next";
 
 import Admin from "@/components/Admin";
-import ContactList from "./_src/ContactList";
+import ContactList from "../../components/Contact/ContactList";
 
 const ContactPage: NextPage = () => {
   return (

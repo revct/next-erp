@@ -1,5 +1,5 @@
 import Admin from "@/components/Admin";
-import ContactForm from "./_src/ContactFormCard";
+import ContactForm from "../../components/Contact/ContactForm";
 
 const ContactShow = () => {
   return (

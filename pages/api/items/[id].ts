@@ -11,10 +11,9 @@ export default async function handler(
     case "GET":
       {
         const { id } = req.query;
-        const data = await prisma.contact.findUnique({
-          where: {
-            id: Number(id),
-          },
+        if (!id) return;
+        const data = await prisma.item.findUnique({
+          where: { id: Number(id) },
         });
         res.status(200).json(data);
       }

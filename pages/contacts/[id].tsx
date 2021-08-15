@@ -2,7 +2,7 @@ import Admin from "@/components/Admin";
 import userContacts from "@/data/useContacts";
 import { NextPage } from "next";
 import { useRouter } from "next/dist/client/router";
-import ContactForm from "./_src/ContactFormCard";
+import ContactForm from "../../components/Contact/ContactForm";
 
 const ContactShowPage: NextPage = () => {
   const router = useRouter();

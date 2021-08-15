@@ -1,7 +1,7 @@
 import Admin from "@/components/Admin";
 import { userAtom } from "@/store/user";
 import { useAtom } from "jotai";
-import DashboardPanel from "./DashboardPanel";
+import DashboardPanel from "@/components/Dashboard/DashboardPanel";
 
 const Dashboard = () => {
   const [user] = useAtom(userAtom);

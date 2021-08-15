@@ -2,7 +2,7 @@ import Admin from "@/components/Admin";
 import Table from "@/components/Table";
 import { NextPage } from "next";
 import { useEffect, useState } from "react";
-import { OrderColumns } from "./_src/OrderColumns";
+import { OrderColumns } from "../../components/Order/OrderColumns";
 
 const Customer: NextPage = () => {
   const [table, setTable] = useState({

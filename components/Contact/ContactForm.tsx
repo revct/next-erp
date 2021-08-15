@@ -1,10 +1,14 @@
+import { Button } from "@chakra-ui/button";
+import { FormControl, FormLabel } from "@chakra-ui/form-control";
+import { Input } from "@chakra-ui/input";
+import { Textarea } from "@chakra-ui/react";
 import { Contact } from "@prisma/client";
 import { cloneDeep, isFunction } from "lodash-es";
 import { useRouter } from "next/dist/client/router";
 import { FunctionComponent, useEffect } from "react";
-import { Controller, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 
-type DefaultValueProps = Contact;
+type DefaultValueProps = Omit<Contact, "id">;
 
 interface IProps extends React.HTMLAttributes<HTMLDivElement> {
   defaultValues?: DefaultValueProps;
@@ -31,7 +35,7 @@ const ContactForm: FunctionComponent<IProps> = ({
   loading,
 }) => {
   const router = useRouter();
-  const { handleSubmit, control, reset, register } = useForm({
+  const { handleSubmit, reset, register, formState } = useForm({
     defaultValues: defaultData,
   });
   useEffect(() => {
@@ -51,6 +55,7 @@ const ContactForm: FunctionComponent<IProps> = ({
   };
 
   const handleSave = async (data: any) => {
+    console.log(data);
     if (data.id) {
       await handleUpdate(data);
     } else {
@@ -75,17 +80,43 @@ const ContactForm: FunctionComponent<IProps> = ({
   return (
     <form onSubmit={handleSubmit(handleSave)}>
       <div className="px-4 py-5 bg-white grid grid-cols-2 gap-6">
-        <input placeholder="姓名" {...register("name")} />
-        <input placeholder="电话" {...register("phone")} />
-        <input placeholder="所属公司" {...register("company")} />
-        <input placeholder="邮箱" {...register("email")} />
-        <input placeholder="街道地址" {...register("address")} />
-        <input placeholder="城市" {...register("city")} />
-        <input placeholder="省/州" {...register("state")} />
-        <input placeholder="邮政编码" {...register("zipcode")} />
+        <FormControl id="name">
+          <FormLabel>姓名</FormLabel>
+          <Input placeholder="请输入" {...register("name")} />
+        </FormControl>
+        <FormControl id="phone">
+          <FormLabel>电话</FormLabel>
+          <Input placeholder="请输入" {...register("phone")} />
+        </FormControl>
+        <FormControl id="company">
+          <FormLabel>所属公司</FormLabel>
+          <Input placeholder="请输入" {...register("company")} />
+        </FormControl>
+        <FormControl id="email">
+          <FormLabel>邮箱</FormLabel>
+          <Input placeholder="请输入" {...register("email")} />
+        </FormControl>
+        <FormControl id="address">
+          <FormLabel>地址</FormLabel>
+          <Input placeholder="请输入" {...register("address")} />
+        </FormControl>
+        <FormControl id="zipcode">
+          <FormLabel>邮政编码</FormLabel>
+          <Input placeholder="请输入" {...register("zipcode")} />
+        </FormControl>
+        <FormControl id="remarks" className="col-span-2">
+          <FormLabel>备注</FormLabel>
+          <Textarea {...register("remarks")} />
+        </FormControl>
       </div>
       <div className="px-4 py-3 bg-gray-50 text-right">
-        <button>保存</button>
+        <Button
+          colorScheme="green"
+          type="submit"
+          isLoading={formState.isSubmitting}
+        >
+          保存
+        </Button>
       </div>
     </form>
   );

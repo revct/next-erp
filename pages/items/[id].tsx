@@ -1,12 +1,12 @@
 import Admin from "@/components/Admin";
-import userContacts from "@/data/useContacts";
 import { useRouter } from "next/dist/client/router";
-import FormCard from "./_components/ItemFormCard";
+import ItemForm from "@/components/Item/ItemForm";
+import useSWR from "swr";
 
 const ItemShowPage = () => {
   const router = useRouter();
   const { id } = router.query;
-  const { data, isValidating, mutate } = userContacts(id);
+  const { data, mutate } = useSWR(`/api/items/${id}`);
 
   const handleCreate = async (data = {}) => {
     await fetch("/api/contacts", {
@@ -39,10 +39,10 @@ const ItemShowPage = () => {
 
   return (
     <Admin>
-      <FormCard
+      <ItemForm
         defaultValues={data}
         onSubmit={(data) => handleSave(data)}
-      ></FormCard>
+      ></ItemForm>
     </Admin>
   );
 };

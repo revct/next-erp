@@ -1,21 +1,11 @@
 /* eslint-disable react/jsx-key */
-import { FunctionComponent, ReactNode } from "react";
-import { TableOptions, useTable } from "react-table";
+import { FunctionComponent } from "react";
+import { useTable } from "react-table";
 
 interface TableProps {
   columns: any;
   rows: any;
 }
-
-type ColumnsProp = {
-  renderCell?: (params: CellParams) => ReactNode;
-};
-
-type CellParams = {
-  field: string;
-  value: string | number | boolean | Date | null | undefined | object;
-  row: any;
-};
 
 const Table: FunctionComponent<TableProps> = (props) => {
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =

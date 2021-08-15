@@ -1,4 +1,4 @@
-import { ContactColumns } from "@/pages/contacts/_src/ContactColumns";
+import { ContactColumns } from "@/components/Contact/ContactColumns";
 import userContacts from "@/data/useContacts";
 import { Button } from "@chakra-ui/react";
 import Table from "@/components/Table";
@@ -12,7 +12,7 @@ const ContactList = () => {
     <div className="space-y-2">
       <section>
         <Link href="/contacts/create" passHref>
-          <Button colorScheme="teal">新建</Button>
+          <Button colorScheme="green">新增</Button>
         </Link>
       </section>
       <Table columns={columns} rows={data.rows}></Table>

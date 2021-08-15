@@ -34,12 +34,12 @@ model Supplier {
 
 // 物料
 model Item {
-  id        Int      @id @default(autoincrement())
-  name      String?
-  code      String?
-  specs     String?
-  Supplier  String?
-  createdAt DateTime @default(now())
+  id         Int      @id @default(autoincrement())
+  name       String?
+  code       String?
+  specs      String?
+  supplierId String?
+  createdAt  DateTime @default(now())
 }
 
 // 库存

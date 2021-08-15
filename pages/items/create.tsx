@@ -1,10 +1,10 @@
 import Admin from "@/components/Admin";
-import FormCard from "./_components/ItemFormCard";
+import ItemForm from "@/components/Item/ItemForm";
 
 const ContactCreate = () => {
   return (
     <Admin>
-      <FormCard></FormCard>
+      <ItemForm></ItemForm>
     </Admin>
   );
 };

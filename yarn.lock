@@ -896,10 +896,10 @@
   resolved "https://registry.nlark.com/@popperjs/core/download/@popperjs/core-2.4.4.tgz?cache=0&sync_timestamp=1628004480078&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40popperjs%2Fcore%2Fdownload%2F%40popperjs%2Fcore-2.4.4.tgz#11d5db19bd178936ec89cd84519c4de439574398"
   integrity sha1-EdXbGb0XiTbsic2EUZxN5DlXQ5g=
 
-"@prisma/client@2.29.0":
-  version "2.29.0"
-  resolved "https://registry.nlark.com/@prisma/client/download/@prisma/client-2.29.0.tgz#e236577e2a2b6ed718ecc606bac05e3603bf054c"
-  integrity sha1-4jZXfiorbtcY7MYGusBeNgO/BUw=
+"@prisma/client@2.29.1":
+  version "2.29.1"
+  resolved "https://registry.yarnpkg.com/@prisma/client/-/client-2.29.1.tgz#a7b91c9644800de4e00b2f7c3789ff4bae42b3d6"
+  integrity sha512-GhieSvHGPIV5IwRYIkJ4FrGSNfX18lPhFtlyVWxhvX0ocdy8oTnjNZVTFgGxB6qVmJIUpH1HsckAzIoAX689IA==
   dependencies:
     "@prisma/engines-version" "2.29.0-34.1be4cd60b89afa04b192acb1ef47758a39810f3a"
 
@@ -1005,10 +1005,10 @@
     "@types/scheduler" "*"
     csstype "^3.0.2"
 
-"@types/react@17.0.17":
-  version "17.0.17"
-  resolved "https://registry.nlark.com/@types/react/download/@types/react-17.0.17.tgz?cache=0&sync_timestamp=1628649176934&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40types%2Freact%2Fdownload%2F%40types%2Freact-17.0.17.tgz#1772d3d5425128e0635a716f49ef57c2955df055"
-  integrity sha1-F3LT1UJRKOBjWnFvSe9XwpVd8FU=
+"@types/react@17.0.18":
+  version "17.0.18"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-17.0.18.tgz#4109cbbd901be9582e5e39e3d77acd7b66bb7fbe"
+  integrity sha512-YTLgu7oS5zvSqq49X5Iue5oAbVGhgPc5Au29SJC4VeE17V6gASoOxVkUDy9pXFMRFxCWCD9fLeweNFizo3UzOg==
   dependencies:
     "@types/prop-types" "*"
     "@types/scheduler" "*"
@@ -3963,10 +3963,10 @@ pretty-hrtime@^1.0.3:
   resolved "https://registry.nlark.com/pretty-hrtime/download/pretty-hrtime-1.0.3.tgz#b7e3ea42435a4c9b2759d99e0f201eb195802ee1"
   integrity sha1-t+PqQkNaTJsnWdmeDyAesZWALuE=
 
-prisma@2.29.0:
-  version "2.29.0"
-  resolved "https://registry.nlark.com/prisma/download/prisma-2.29.0.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fprisma%2Fdownload%2Fprisma-2.29.0.tgz#dbd801eab9b87cb1cb543f0baadac79cd658dd39"
-  integrity sha1-29gB6rm4fLHLVD8LqtrHnNZY3Tk=
+prisma@2.29.1:
+  version "2.29.1"
+  resolved "https://registry.yarnpkg.com/prisma/-/prisma-2.29.1.tgz#7845f55c7f09955b01f973c6a4b1f330cb212e7d"
+  integrity sha512-fRGh90+z0m3Jw3D6KBE6wyVCRR0w6M6QD93jh+em8IOQycmC48zB8hho8zeri3J9//C0k8fkDeQrRLJUosXROw==
   dependencies:
     "@prisma/engines" "2.29.0-34.1be4cd60b89afa04b192acb1ef47758a39810f3a"
 
