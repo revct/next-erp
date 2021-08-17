@@ -2,6 +2,9 @@
 import Link from "next/link";
 import { Column } from "react-table";
 import { Contact } from "@prisma/client";
+import { IconButton } from "@chakra-ui/button";
+import DeleteConfirm from "../Confirm/DeleteConfirm";
+import { deleteItem } from "@/data/items";
 
 export const ContactColumns: Column<Contact>[] = [
   {
@@ -38,11 +41,34 @@ export const ContactColumns: Column<Contact>[] = [
     Cell: ({ value }) => (
       <div className="space-x-2">
         <Link href={`/contacts/${value}`} passHref>
-          <a className="text-indigo-600 hover:text-indigo-900 text-sm">编辑</a>
+          <IconButton
+            aria-label="Edit"
+            icon={
+              <span
+                className="iconify"
+                data-icon="ant-design:edit-filled"
+              ></span>
+            }
+          />
         </Link>
-        <button className="text-indigo-600 hover:text-indigo-900 text-sm">
-          删除
-        </button>
+        <DeleteConfirm
+          onConfirm={() =>
+            fetch(`/api/contacts/${value}`, {
+              method: "delete",
+              headers: { "Content-Type": "application/json" },
+            })
+          }
+        >
+          <IconButton
+            aria-label="Delete"
+            icon={
+              <span
+                className="iconify"
+                data-icon="ant-design:delete-filled"
+              ></span>
+            }
+          ></IconButton>
+        </DeleteConfirm>
       </div>
     ),
   },

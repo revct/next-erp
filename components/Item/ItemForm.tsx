@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { createItem, updateItem } from "@/data/items";
 import { Input, Button, FormControl, FormLabel } from "@chakra-ui/react";
 import { Item } from ".prisma/client";
+import SupplierModal from "../Modal/SupplierModal";
 
 type DefaultValueProps = Omit<Item, "id">;
 
@@ -26,7 +27,7 @@ const ItemForm: FunctionComponent<IProps> = ({
   loading,
 }) => {
   const router = useRouter();
-  const { handleSubmit, reset, register, formState } = useForm({
+  const { handleSubmit, reset, register, formState, setValue } = useForm({
     defaultValues: defaultData,
   });
   useEffect(() => {
@@ -35,25 +36,22 @@ const ItemForm: FunctionComponent<IProps> = ({
     }
   }, [loading, reset, defaultValues]);
 
-  const handleCreate = async (data = {}) => {
-    return createItem(data);
-  };
-
   const handleSave = async (data: any) => {
     if (data.id) {
       await handleUpdate(data);
     } else {
       await handleCreate(data);
     }
-    if (isFunction(onSubmit)) {
-      onSubmit(data);
-    } else {
-      router.back();
-    }
+
+    router.back();
   };
 
   const handleUpdate = async (data: any) => {
     return updateItem(data);
+  };
+
+  const handleCreate = async (data = {}) => {
+    return createItem(data);
   };
 
   return (
@@ -75,16 +73,17 @@ const ItemForm: FunctionComponent<IProps> = ({
             <FormLabel>规格</FormLabel>
             <Input placeholder="请输入" {...register("specs")} />
           </FormControl>
-
-          <FormControl id="supplierId">
-            <FormLabel>供应商</FormLabel>
-            <Input placeholder="请输入" {...register("supplierId")} />
-          </FormControl>
         </div>
       </div>
       <div className="bg-white">
         <div className="p-4">供应商信息</div>
-        <div className="p-4"></div>
+        <div className="p-4">
+          <div className="flex justify-center">
+            <SupplierModal>
+              <Button>选择供应商</Button>
+            </SupplierModal>
+          </div>
+        </div>
       </div>
       <div className="px-4 py-3 bg-gray-50 text-right">
         <Button

@@ -19,6 +19,16 @@ export default async function handler(
         res.status(200).json(data);
       }
       break;
+    case "DELETE":
+      {
+        const { id } = req.query;
+        if (!Number(id)) return;
+        const data = await prisma.contact.delete({
+          where: { id: Number(id) },
+        });
+        res.status(200).json(data);
+      }
+      break;
     default:
       res.status(200).json({ message: "没有定义的请求" });
   }

@@ -11,13 +11,21 @@ export default async function handler(
     case "GET":
       {
         const { id } = req.query;
-        if (!id) return;
+        if (!Number(id)) return;
         const data = await prisma.item.findUnique({
           where: { id: Number(id) },
         });
         res.status(200).json(data);
       }
       break;
+    case "DELETE": {
+      const { id } = req.query;
+      if (!Number(id)) return;
+      const data = await prisma.item.delete({
+        where: { id: Number(id) },
+      });
+      res.status(200).json(data);
+    }
     default:
       res.status(200).json({ message: "没有定义的请求" });
   }

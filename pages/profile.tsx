@@ -1,6 +1,8 @@
 import Admin from "@/components/Admin";
+import { Button } from "@chakra-ui/button";
+import { FormControl, FormLabel } from "@chakra-ui/form-control";
+import { Input } from "@chakra-ui/input";
 import { signIn, useSession } from "next-auth/client";
-import { useEffect } from "react";
 
 const Profile = () => {
   const [session, loading] = useSession();
@@ -17,67 +19,31 @@ const Profile = () => {
 
         <form>
           <div className="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
-            <div>
-              <label
-                className="text-gray-700 dark:text-gray-200"
-                htmlFor="username"
-              >
-                Username
-              </label>
-              <input
-                id="username"
-                type="text"
-                className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
-              />
-            </div>
+            <FormControl id="username">
+              <FormLabel htmlFor="username">Username</FormLabel>
+              <Input type="text" />
+            </FormControl>
 
-            <div>
-              <label
-                className="text-gray-700 dark:text-gray-200"
-                htmlFor="emailAddress"
-              >
-                Email Address
-              </label>
-              <input
-                id="emailAddress"
-                type="email"
-                className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
-              />
-            </div>
+            <FormControl id="emailAddress">
+              <FormLabel htmlFor="emailAddress">Email Address</FormLabel>
+              <Input type="email" />
+            </FormControl>
 
-            <div>
-              <label
-                className="text-gray-700 dark:text-gray-200"
-                htmlFor="password"
-              >
-                Password
-              </label>
-              <input
-                id="password"
-                type="password"
-                className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
-              />
-            </div>
+            <FormControl id="password">
+              <FormLabel htmlFor="password">Password</FormLabel>
+              <Input type="password" />
+            </FormControl>
 
-            <div>
-              <label
-                className="text-gray-700 dark:text-gray-200"
-                htmlFor="passwordConfirmation"
-              >
+            <FormControl id="passwordConfirmation">
+              <FormLabel htmlFor="passwordConfirmation">
                 Password Confirmation
-              </label>
-              <input
-                id="passwordConfirmation"
-                type="password"
-                className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
-              />
-            </div>
+              </FormLabel>
+              <Input type="password" />
+            </FormControl>
           </div>
 
           <div className="flex justify-end mt-6">
-            <button className="px-6 py-2 leading-5 text-white transition-colors duration-200 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">
-              Save
-            </button>
+            <Button>Save</Button>
           </div>
         </form>
       </section>

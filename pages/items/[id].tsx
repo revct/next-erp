@@ -1,50 +1,32 @@
 import Admin from "@/components/Admin";
-import { useRouter } from "next/dist/client/router";
+import { NextRouter, useRouter } from "next/dist/client/router";
 import ItemForm from "@/components/Item/ItemForm";
 import useSWR from "swr";
 
-const ItemShowPage = () => {
-  const router = useRouter();
-  const { id } = router.query;
-  const { data, mutate } = useSWR(`/api/items/${id}`);
-
-  const handleCreate = async (data = {}) => {
-    await fetch("/api/contacts", {
-      method: "post",
-      body: JSON.stringify(data),
-      headers: {
-        "content-type": "application/json",
-      },
-    });
+interface IProps {
+  query: {
+    id: string;
   };
+}
 
-  const handleSave = async (data: any) => {
-    if (data.id) {
-      await handleUpdate(data);
-    } else {
-      await handleCreate(data);
-    }
-    router.back();
-  };
-
-  const handleUpdate = async (data: any) => {
-    await fetch("/api/contacts", {
-      method: "put",
-      body: JSON.stringify(data),
-      headers: {
-        "content-type": "application/json",
-      },
-    });
-  };
+const ItemShowPage = (props: IProps) => {
+  const { query } = props;
+  const { id } = query;
+  const { data } = useSWR(`/api/items/${id}`);
 
   return (
     <Admin>
-      <ItemForm
-        defaultValues={data}
-        onSubmit={(data) => handleSave(data)}
-      ></ItemForm>
+      <ItemForm defaultValues={data}></ItemForm>
     </Admin>
   );
+};
+
+export const getServerSideProps = async ({ query }: NextRouter) => {
+  return {
+    props: {
+      query,
+    },
+  };
 };
 
 export default ItemShowPage;

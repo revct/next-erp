@@ -21,6 +21,12 @@ export const updateItem = async (data: Prisma.ItemCreateInput) => {
   });
 };
 
+export const deleteItem = async (id: string | number) => {
+  return fetch(`/api/items/${id}`, {
+    method: "delete",
+  });
+};
+
 export const useItems = () => {
   const {
     data = {

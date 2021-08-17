@@ -2,6 +2,7 @@
 import { Item } from "@prisma/client";
 import { Column } from "react-table";
 import Link from "next/link";
+import { IconButton } from "@chakra-ui/button";
 
 export const ItemColumns: Column<Item>[] = [
   {
@@ -18,11 +19,21 @@ export const ItemColumns: Column<Item>[] = [
   },
   {
     accessor: "id",
-    Header: "编辑",
+    Header: "操作",
     Cell: ({ value }) => (
       <div className="space-x-2">
         <Link href={`/items/${value}`} passHref>
-          <a className="text-indigo-600 hover:text-indigo-900 text-sm">编辑</a>
+          <IconButton
+            icon={
+              <span
+                className="iconify"
+                data-icon="ant-design:edit-filled"
+              ></span>
+            }
+            aria-label="Edit"
+          >
+            编辑
+          </IconButton>
         </Link>
       </div>
     ),
