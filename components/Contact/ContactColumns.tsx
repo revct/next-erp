@@ -2,9 +2,7 @@
 import Link from "next/link";
 import { Column } from "react-table";
 import { Contact } from "@prisma/client";
-import { IconButton } from "@chakra-ui/button";
 import DeleteConfirm from "../Confirm/DeleteConfirm";
-import { deleteItem } from "@/data/items";
 
 export const ContactColumns: Column<Contact>[] = [
   {

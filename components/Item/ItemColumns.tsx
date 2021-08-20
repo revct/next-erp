@@ -2,7 +2,6 @@
 import { Item } from "@prisma/client";
 import { Column } from "react-table";
 import Link from "next/link";
-import { IconButton } from "@chakra-ui/button";
 
 export const ItemColumns: Column<Item>[] = [
   {
@@ -23,17 +22,9 @@ export const ItemColumns: Column<Item>[] = [
     Cell: ({ value }) => (
       <div className="space-x-2">
         <Link href={`/items/${value}`} passHref>
-          <IconButton
-            icon={
-              <span
-                className="iconify"
-                data-icon="ant-design:edit-filled"
-              ></span>
-            }
-            aria-label="Edit"
-          >
-            编辑
-          </IconButton>
+          <button className="btn btn-square">
+            <span className="iconify" data-icon="ant-design:edit-filled"></span>
+          </button>
         </Link>
       </div>
     ),

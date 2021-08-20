@@ -6,7 +6,7 @@ interface Props {}
 const Header = (props: Props) => {
   const [enabled, setEnabled] = useState(false);
   return (
-    <div className="navbar mb-2 shadow-lg bg-neutral text-neutral-content rounded-box mx-4">
+    <div className="navbar shadow-lg bg-neutral text-neutral-content rounded-box mx-4">
       <div className="flex-none hidden lg:flex">
         <button className="btn btn-square btn-ghost">
           <svg
