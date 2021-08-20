@@ -41,15 +41,9 @@ export const ContactColumns: Column<Contact>[] = [
     Cell: ({ value }) => (
       <div className="space-x-2">
         <Link href={`/contacts/${value}`} passHref>
-          <IconButton
-            aria-label="Edit"
-            icon={
-              <span
-                className="iconify"
-                data-icon="ant-design:edit-filled"
-              ></span>
-            }
-          />
+          <button className="btn btn-square">
+            <span className="iconify" data-icon="ant-design:edit-filled"></span>
+          </button>
         </Link>
         <DeleteConfirm
           onConfirm={() =>
@@ -59,15 +53,12 @@ export const ContactColumns: Column<Contact>[] = [
             })
           }
         >
-          <IconButton
-            aria-label="Delete"
-            icon={
-              <span
-                className="iconify"
-                data-icon="ant-design:delete-filled"
-              ></span>
-            }
-          ></IconButton>
+          <button className="btn btn-square">
+            <span
+              className="iconify"
+              data-icon="ant-design:delete-filled"
+            ></span>
+          </button>
         </DeleteConfirm>
       </div>
     ),

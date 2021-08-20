@@ -8,7 +8,7 @@ const Admin = (props: any) => {
         <Sidebar></Sidebar>
         <div className="flex-1 flex flex-col w-full">
           <Header></Header>
-          <div className="h-screen py-4 px-8">{props.children}</div>
+          <div className="h-screen p-4">{props.children}</div>
         </div>
       </div>
     </main>
