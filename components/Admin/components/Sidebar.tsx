@@ -15,7 +15,7 @@ const Sidebar = () => {
         return (
           <li key={menu.key}>
             <Link href={menu.path} passHref>
-              <a>
+              <a className={`${isActive ? "active" : ""}`}>
                 <div className="inline-block h-4 w-4">
                   <span className="iconify" data-icon={menu.icon}></span>
                 </div>

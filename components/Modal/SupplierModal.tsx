@@ -1,22 +1,18 @@
-import React, { Fragment } from "react";
-import {
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  Button,
-  ModalBody,
-  ModalCloseButton,
-  ModalFooter,
-  useDisclosure,
-  ButtonGroup,
-} from "@chakra-ui/react";
+import React, { Fragment, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
+import SupplierInput from "../Contact/SupplierInput";
 
 interface Props extends React.HTMLAttributes<HTMLDivElement> {}
 
 const SupplierModal = (props: Props) => {
-  const { isOpen, onOpen, onClose } = useDisclosure();
+  const [isOpen, setOpen] = useState(false);
+  const onOpen = () => {
+    setOpen(true);
+  };
+
+  const onClose = () => {
+    setOpen(false);
+  };
   return (
     <>
       <div onClick={onOpen}>{props.children}</div>
@@ -47,29 +43,23 @@ const SupplierModal = (props: Props) => {
             leaveFrom="opacity-100 scale-100"
             leaveTo="opacity-0 scale-95"
           >
-            <div className="inline-block w-full max-w-md overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl">
-              <Dialog.Title
-                as="header"
-                className="text-lg font-bold leading-6 text-gray-900 px-6 py-4"
-              >
+            <div className="modal-box">
+              <Dialog.Title as="header" className="text-lg font-bold">
                 供应商选择
               </Dialog.Title>
-              <div className="py-2 px-6">
-                <div className="text-sm text-gray-500">
-                  Your payment has been successfully submitted. We’ve sent your
-                  an email with all of the details of your order.
-                </div>
+              <br />
+              <div className="">
+                <SupplierInput></SupplierInput>
               </div>
-
-              <footer className="px-6 py-4 text-right">
-                <ButtonGroup>
-                  <Button variant="ghost" onClick={onClose}>
+              <footer className="modal-action">
+                <div className="space-x-2">
+                  <button className="btn btn-ghost" onClick={onClose}>
                     取消
-                  </Button>
-                  <Button colorScheme="blue" onClick={onClose}>
+                  </button>
+                  <button className="btn btn-primary" onClick={onClose}>
                     确定
-                  </Button>
-                </ButtonGroup>
+                  </button>
+                </div>
               </footer>
             </div>
           </Transition.Child>

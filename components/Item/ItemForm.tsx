@@ -3,7 +3,6 @@ import { useRouter } from "next/router";
 import React, { FunctionComponent, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { createItem, updateItem } from "@/data/items";
-import { Input, Button, FormControl, FormLabel } from "@chakra-ui/react";
 import { Item } from ".prisma/client";
 import SupplierModal from "../Modal/SupplierModal";
 
@@ -59,20 +58,38 @@ const ItemForm: FunctionComponent<IProps> = ({
       <div className="bg-white ">
         <div className="p-4">物料信息</div>
         <div className="grid grid-cols-3 gap-4 p-4">
-          <FormControl id="name">
-            <FormLabel>品名</FormLabel>
-            <Input placeholder="请输入" {...register("name")} />
-          </FormControl>
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text">品名</span>
+            </label>
+            <input
+              className="input input-bordered"
+              placeholder="请输入"
+              {...register("name")}
+            />
+          </div>
 
-          <FormControl id="code">
-            <FormLabel>料号</FormLabel>
-            <Input placeholder="请输入" {...register("code")} />
-          </FormControl>
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text">料号</span>
+            </label>
+            <input
+              className="input input-bordered"
+              placeholder="请输入"
+              {...register("code")}
+            />
+          </div>
 
-          <FormControl id="specs">
-            <FormLabel>规格</FormLabel>
-            <Input placeholder="请输入" {...register("specs")} />
-          </FormControl>
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text">规格</span>
+            </label>
+            <input
+              className="input input-bordered"
+              placeholder="请输入"
+              {...register("specs")}
+            />
+          </div>
         </div>
       </div>
       <div className="bg-white">
@@ -80,19 +97,22 @@ const ItemForm: FunctionComponent<IProps> = ({
         <div className="p-4">
           <div className="flex justify-center">
             <SupplierModal>
-              <Button>选择供应商</Button>
+              <button className="btn" type="button">
+                选择供应商
+              </button>
             </SupplierModal>
           </div>
         </div>
       </div>
       <div className="px-4 py-3 bg-gray-50 text-right">
-        <Button
-          isLoading={formState.isSubmitting}
-          colorScheme="green"
+        <button
+          className={`btn btn-primary ${
+            formState.isSubmitting ? "loading" : ""
+          }`}
           type="submit"
         >
           保存
-        </Button>
+        </button>
       </div>
     </form>
   );

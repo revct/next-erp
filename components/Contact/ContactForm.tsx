@@ -1,7 +1,3 @@
-import { Button } from "@chakra-ui/button";
-import { FormControl, FormLabel } from "@chakra-ui/form-control";
-import { Input } from "@chakra-ui/input";
-import { Textarea } from "@chakra-ui/react";
 import { Contact } from "@prisma/client";
 import { cloneDeep, isFunction } from "lodash-es";
 import { useRouter } from "next/dist/client/router";
@@ -80,43 +76,85 @@ const ContactForm: FunctionComponent<IProps> = ({
   return (
     <form onSubmit={handleSubmit(handleSave)}>
       <div className="px-4 py-5 bg-white grid grid-cols-2 gap-6">
-        <FormControl id="name">
-          <FormLabel>姓名</FormLabel>
-          <Input placeholder="请输入" {...register("name")} />
-        </FormControl>
-        <FormControl id="phone">
-          <FormLabel>电话</FormLabel>
-          <Input placeholder="请输入" {...register("phone")} />
-        </FormControl>
-        <FormControl id="company">
-          <FormLabel>所属公司</FormLabel>
-          <Input placeholder="请输入" {...register("company")} />
-        </FormControl>
-        <FormControl id="email">
-          <FormLabel>邮箱</FormLabel>
-          <Input placeholder="请输入" {...register("email")} />
-        </FormControl>
-        <FormControl id="address">
-          <FormLabel>地址</FormLabel>
-          <Input placeholder="请输入" {...register("address")} />
-        </FormControl>
-        <FormControl id="zipcode">
-          <FormLabel>邮政编码</FormLabel>
-          <Input placeholder="请输入" {...register("zipcode")} />
-        </FormControl>
-        <FormControl id="remarks" className="col-span-2">
-          <FormLabel>备注</FormLabel>
-          <Textarea {...register("remarks")} />
-        </FormControl>
+        <div className="form-control">
+          <label className="label">
+            <span className="label-text">姓名</span>
+          </label>
+          <input
+            className="input input-bordered"
+            placeholder="请输入"
+            {...register("name")}
+          />
+        </div>
+        <div className="form-control">
+          <label className="label">
+            <span className="label-text">电话</span>
+          </label>
+          <input
+            className="input input-bordered"
+            placeholder="请输入"
+            {...register("phone")}
+          />
+        </div>
+        <div className="form-control">
+          <label className="label">
+            <span className="label-text">所属公司</span>
+          </label>
+          <input
+            className="input input-bordered"
+            placeholder="请输入"
+            {...register("company")}
+          />
+        </div>
+        <div className="form-control">
+          <label className="label">
+            <span className="label-text">邮箱</span>
+          </label>
+          <input
+            className="input input-bordered"
+            placeholder="请输入"
+            {...register("email")}
+          />
+        </div>
+        <div className="form-control">
+          <label className="label">
+            <span className="label-text">地址</span>
+          </label>
+          <input
+            className="input input-bordered"
+            placeholder="请输入"
+            {...register("address")}
+          />
+        </div>
+        <div className="form-control">
+          <label className="label">
+            <span className="label-text">邮政编码</span>
+          </label>
+          <input
+            className="input input-bordered"
+            placeholder="请输入"
+            {...register("zipcode")}
+          />
+        </div>
+        <div className="form-control col-span-2">
+          <label className="label">
+            <span className="label-text">备注</span>
+          </label>
+          <textarea
+            className="textarea textarea-bordered"
+            {...register("remarks")}
+          />
+        </div>
       </div>
       <div className="px-4 py-3 bg-gray-50 text-right">
-        <Button
-          colorScheme="green"
+        <button
+          className={`btn btn-primary ${
+            formState.isSubmitting ? "loading" : ""
+          }`}
           type="submit"
-          isLoading={formState.isSubmitting}
         >
           保存
-        </Button>
+        </button>
       </div>
     </form>
   );

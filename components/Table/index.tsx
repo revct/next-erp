@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-key */
 import { FunctionComponent } from "react";
-import { useTable } from "react-table";
+import { usePagination, useTable } from "react-table";
 
 interface TableProps {
   columns: any;
@@ -8,8 +8,26 @@ interface TableProps {
 }
 
 const Table: FunctionComponent<TableProps> = (props) => {
-  const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
-    useTable({ columns: props.columns, data: props.rows });
+  const tableInstance = useTable(
+    {
+      columns: props.columns,
+      data: props.rows,
+    },
+    usePagination,
+  );
+
+  const {
+    getTableProps,
+    getTableBodyProps,
+    headerGroups,
+    rows,
+    prepareRow,
+    canPreviousPage,
+    canNextPage,
+    page,
+    state: { pageIndex, pageSize },
+  } = tableInstance;
+  console.log(page);
   return (
     <div className="space-y-2">
       <table className="table w-full" {...getTableProps()}>
@@ -66,13 +84,38 @@ const Table: FunctionComponent<TableProps> = (props) => {
           }
         </tbody>
       </table>
-      <div className="btn-group justify-end">
-        <button className="btn">Previous</button>
-        <button className="btn">1</button>
-        <button className="btn btn-active">2</button>
-        <button className="btn">3</button>
-        <button className="btn">4</button>
-        <button className="btn">Next</button>
+      <div className="flex space-x-2 justify-center items-center">
+        <button
+          className={`btn btn-square ${canPreviousPage ? "" : "btn-disabled"}`}
+        >
+          <span className="iconify" data-icon="mdi:chevron-double-left"></span>
+        </button>
+        <button
+          className={`btn btn-square ${canPreviousPage ? "" : "btn-disabled"}`}
+        >
+          <span className="iconify" data-icon="mdi:chevron-left"></span>
+        </button>
+        {page?.map((item: any) => (
+          <button
+            className={`btn btn-square ${
+              pageIndex === item.index ? "btn-active" : ""
+            }`}
+            key={item.index}
+          >
+            {item.index + 1}
+          </button>
+        ))}
+
+        <button
+          className={`btn btn-square ${canNextPage ? "" : "btn-disabled"}`}
+        >
+          <span className="iconify" data-icon="mdi:chevron-right"></span>
+        </button>
+        <button
+          className={`btn btn-square ${canNextPage ? "" : "btn-disabled"}`}
+        >
+          <span className="iconify" data-icon="mdi:chevron-double-right"></span>
+        </button>
       </div>
     </div>
   );

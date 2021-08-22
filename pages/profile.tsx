@@ -1,7 +1,4 @@
 import Admin from "@/components/Admin";
-import { Button } from "@chakra-ui/button";
-import { FormControl, FormLabel } from "@chakra-ui/form-control";
-import { Input } from "@chakra-ui/input";
 import { signIn, useSession } from "next-auth/client";
 
 const Profile = () => {
@@ -19,31 +16,37 @@ const Profile = () => {
 
         <form>
           <div className="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
-            <FormControl id="username">
-              <FormLabel htmlFor="username">Username</FormLabel>
-              <Input type="text" />
-            </FormControl>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Username</span>
+              </label>
+              <input className="input input-bordered" type="text" />
+            </div>
 
-            <FormControl id="emailAddress">
-              <FormLabel htmlFor="emailAddress">Email Address</FormLabel>
-              <Input type="email" />
-            </FormControl>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Email Address</span>
+              </label>
+              <input className="input input-bordered" type="email" />
+            </div>
 
-            <FormControl id="password">
-              <FormLabel htmlFor="password">Password</FormLabel>
-              <Input type="password" />
-            </FormControl>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Password</span>
+              </label>
+              <input className="input input-bordered" type="password" />
+            </div>
 
-            <FormControl id="passwordConfirmation">
-              <FormLabel htmlFor="passwordConfirmation">
+            <div className="form-control">
+              <label htmlFor="passwordConfirmation">
                 Password Confirmation
-              </FormLabel>
-              <Input type="password" />
-            </FormControl>
+              </label>
+              <input className="input input-bordered" type="password" />
+            </div>
           </div>
 
           <div className="flex justify-end mt-6">
-            <Button>Save</Button>
+            <button className="btn btn-primary">Save</button>
           </div>
         </form>
       </section>
