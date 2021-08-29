@@ -1,5 +1,6 @@
 module.exports = {
   reactStrictMode: true,
+  experimental: { esmExternals: true },
   images: {
     domains: ["picsum.photos"],
   },
