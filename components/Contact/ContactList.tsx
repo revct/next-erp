@@ -1,10 +1,12 @@
 import { ContactColumns } from "@/components/Contact/ContactColumns";
-import userContacts from "@/data/useContacts";
 import Table from "@/components/Table";
+import fetcher from "@/utils/fetcher";
 import Link from "next/link";
+import useSWR from "swr";
 
 const ContactList = () => {
-  const { data, mutate } = userContacts();
+  const { data } = useSWR("/api/contacts", fetcher);
+  console.log(data);
   const columns = ContactColumns;
 
   return (
@@ -14,7 +16,7 @@ const ContactList = () => {
           <button className="btn">新增</button>
         </Link>
       </section>
-      <Table columns={columns} rows={data.rows}></Table>
+      <Table columns={columns} rows={data?.rows || []}></Table>
     </div>
   );
 };

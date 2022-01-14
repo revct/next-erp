@@ -1,16 +1,12 @@
 import Header from "./components/Header";
-import Sidebar from "./components/Sidebar";
+import Menu from "./components/Menu";
 
 const Admin = (props: any) => {
   return (
-    <main className="bg-gray-100 dark:bg-gray-800 h-screen overflow-hidden relative">
-      <div className="flex items-start justify-between">
-        <Sidebar></Sidebar>
-        <div className="flex-1 flex flex-col w-full">
-          <Header></Header>
-          <div className="h-screen p-4">{props.children}</div>
-        </div>
-      </div>
+    <main className="bg-gray-100 dark:bg-gray-800 h-screen overflow-hidden relative grid grid-cols-[200px_minmax(0,1fr)] grid-rows-[64px_minmax(0,1fr)]">
+      <Header className="col-start-2"></Header>
+      <Menu className="col-span-1 col-start-1 row-start-1"></Menu>
+      <section className="col-start-2 p-4">{props.children}</section>
     </main>
   );
 };

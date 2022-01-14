@@ -1,10 +1,9 @@
 /* eslint-disable react/display-name */
 import Link from "next/link";
 import { Column } from "react-table";
-import { Contact } from "@prisma/client";
 import DeleteConfirm from "../Confirm/DeleteConfirm";
 
-export const ContactColumns: Column<Contact>[] = [
+export const ContactColumns: Column<any>[] = [
   {
     accessor: "name",
     Header: "名称",

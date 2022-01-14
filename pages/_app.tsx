@@ -3,6 +3,7 @@ import "../styles/globals.css";
 import Head from "next/head";
 import Script from "next/script";
 import type { AppProps } from "next/app";
+import "../mocks";
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   return (

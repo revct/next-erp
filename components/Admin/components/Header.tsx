@@ -1,12 +1,12 @@
-import { Switch } from "@headlessui/react";
-import { useState } from "react";
+import Image from "next/image";
 
-interface Props {}
+interface Props {
+  className?: string;
+}
 
 const Header = (props: Props) => {
-  const [enabled, setEnabled] = useState(false);
   return (
-    <div className="navbar shadow-lg bg-neutral text-neutral-content rounded-box mx-4">
+    <header className={`navbar shadow-lg bg-white rounded ${props.className}`}>
       <div className="flex-none hidden lg:flex">
         <button className="btn btn-square btn-ghost">
           <svg
@@ -71,13 +71,17 @@ const Header = (props: Props) => {
         </button>
       </div>
       <div className="flex-none">
-        <div className="avatar">
-          <div className="rounded-full w-10 h-10 m-1">
-            <img src="https://picsum.photos/id/609/200/200" alt="avatar" />
-          </div>
+        <div className="avatar overflow-hidden rounded-full m-1">
+          <Image
+            className=""
+            width={40}
+            height={40}
+            src="https://picsum.photos/id/609/200/200"
+            alt="avatar"
+          />
         </div>
       </div>
-    </div>
+    </header>
   );
 };
 

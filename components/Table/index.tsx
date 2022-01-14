@@ -27,7 +27,6 @@ const Table: FunctionComponent<TableProps> = (props) => {
     page,
     state: { pageIndex, pageSize },
   } = tableInstance;
-  console.log(page);
   return (
     <div className="space-y-2">
       <table className="table w-full" {...getTableProps()}>

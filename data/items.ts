@@ -1,4 +1,3 @@
-import { Prisma } from "@prisma/client";
 import useSWR from "swr";
 
 export const createItem = async (data: Prisma.ItemCreateInput) => {

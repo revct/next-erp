@@ -1,4 +1,3 @@
-import { Contact } from "@prisma/client";
 import { cloneDeep, isFunction } from "lodash-es";
 import { useRouter } from "next/dist/client/router";
 import { FunctionComponent, useEffect } from "react";

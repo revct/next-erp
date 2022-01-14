@@ -1,5 +1,4 @@
 /* eslint-disable react/display-name */
-import { Item } from "@prisma/client";
 import { Column } from "react-table";
 import Link from "next/link";
 
