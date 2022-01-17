@@ -1,6 +1,7 @@
 module.exports = {
   reactStrictMode: true,
-  experimental: { esmExternals: true },
+  swcMinify: true,
+  experimental: { esmExternals: true, styledComponents: true },
   images: {
     domains: ["picsum.photos"],
   },
