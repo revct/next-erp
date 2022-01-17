@@ -1,6 +1,7 @@
-import { atom } from "jotai";
-import { CONFIG, MENUS } from "./constant";
+import create from "zustand";
 
-export const configAtom = atom(CONFIG);
+const useConfigStore = create((set) => ({
+    
+}));
 
-export const menuAtom = atom(MENUS);
+export default useConfigStore;

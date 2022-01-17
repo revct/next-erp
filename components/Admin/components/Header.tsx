@@ -1,11 +1,13 @@
 import Image from "next/image";
 import { Icon } from "@iconify/react";
+import useUserStore from "@/store/user";
 
 interface Props {
   className?: string;
 }
 
 const Header = (props: Props) => {
+  const user = useUserStore();
   return (
     <header className={`navbar shadow-lg bg-white rounded ${props.className}`}>
       <div className="flex-none hidden lg:flex">
@@ -41,7 +43,7 @@ const Header = (props: Props) => {
             className=""
             width={40}
             height={40}
-            src="https://picsum.photos/id/609/200/200"
+            src={user.info.avatarUrl}
             alt="avatar"
           />
         </div>

@@ -1,9 +1,13 @@
-import { atom } from "jotai";
+import create from "zustand";
 
-export const userAtom = atom({
-  id: "1",
-  username: "admin",
-  email: "",
-  nickname: "",
-  avatarUrl: "https://picsum.photos/id/425/200/200",
-});
+const useUserStore = create((set) => ({
+  info: {
+    id: "1",
+    username: "admin",
+    email: "",
+    nickname: "",
+    avatarUrl: "https://picsum.photos/id/425/200/200",
+  },
+}));
+
+export default useUserStore;

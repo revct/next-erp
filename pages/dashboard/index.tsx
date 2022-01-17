@@ -1,14 +1,13 @@
 import Admin from "@/components/Admin";
-import { userAtom } from "@/store/user";
-import { useAtom } from "jotai";
 import DashboardPanel from "@/components/Dashboard/DashboardPanel";
+import useUserStore from "@/store/user";
 
 const Dashboard = () => {
-  const [user] = useAtom(userAtom);
+  const user = useUserStore();
   return (
     <Admin>
       <h1 className="text-4xl font-semibold text-gray-800 dark:text-white">
-        欢迎回来，{user.nickname}
+        欢迎回来，{user.info.username}
       </h1>
 
       <div className="flex my-6 items-center w-full space-y-4 md:space-x-4 md:space-y-0 flex-col md:flex-row">

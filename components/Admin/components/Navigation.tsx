@@ -1,4 +1,3 @@
-import { menuAtom } from "@/store/config";
 import { CONFIG, MENUS } from "@/store/constant";
 import { Icon } from "@iconify/react";
 import { useRouter } from "next/dist/client/router";
