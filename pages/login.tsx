@@ -1,4 +1,3 @@
-import { useSessionStorageState } from "ahooks";
 import { useRouter } from "next/dist/client/router";
 import { useForm } from "react-hook-form";
 
@@ -8,13 +7,10 @@ type LoginProps = {
 };
 
 const Login = () => {
-  const [user, setUser] = useSessionStorageState("user", {
-    account: "",
-  });
   const router = useRouter();
   const { register, handleSubmit } = useForm();
-  const onSubmit = (data: LoginProps) => {
-    setUser(data);
+  const onSubmit = (data: any) => {
+    console.log(data);
     router.push("/");
   };
   return (

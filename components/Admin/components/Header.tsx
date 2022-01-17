@@ -9,7 +9,7 @@ interface Props {
 const Header = (props: Props) => {
   const user = useUserStore();
   return (
-    <header className={`navbar shadow-lg bg-white rounded ${props.className}`}>
+    <header className={`navbar shadow-lg bg-white rounded gap-2 ${props.className}`}>
       <div className="flex-none hidden lg:flex">
         <button className="btn btn-square btn-ghost">
           <Icon icon="mdi:menu" fontSize={24}></Icon>

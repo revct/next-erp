@@ -3,7 +3,7 @@ import { useRouter } from "next/dist/client/router";
 import { FunctionComponent, useEffect } from "react";
 import { useForm } from "react-hook-form";
 
-type DefaultValueProps = Omit<Contact, "id">;
+type DefaultValueProps = Omit<any, "id">;
 
 interface IProps extends React.HTMLAttributes<HTMLDivElement> {
   defaultValues?: DefaultValueProps;

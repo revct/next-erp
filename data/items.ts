@@ -1,6 +1,6 @@
 import useSWR from "swr";
 
-export const createItem = async (data: Prisma.ItemCreateInput) => {
+export const createItem = async (data: any) => {
   return fetch("/api/items", {
     method: "post",
     body: JSON.stringify(data),
@@ -10,7 +10,7 @@ export const createItem = async (data: Prisma.ItemCreateInput) => {
   });
 };
 
-export const updateItem = async (data: Prisma.ItemCreateInput) => {
+export const updateItem = async (data: any) => {
   return fetch("/api/items", {
     method: "put",
     body: JSON.stringify(data),

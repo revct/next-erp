@@ -1,9 +1,9 @@
 import Admin from "@/components/Admin";
-import { signIn, useSession } from "next-auth/client";
+import { signIn, useSession } from "next-auth/react";
 
 const Profile = () => {
-  const [session, loading] = useSession();
-  if (!session && !loading) {
+  const { data: session } = useSession();
+  if (!session) {
     signIn();
   }
 

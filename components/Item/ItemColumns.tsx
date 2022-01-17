@@ -3,7 +3,7 @@ import { Column } from "react-table";
 import Link from "next/link";
 import { Icon } from "@iconify/react";
 
-export const ItemColumns: Column<Item>[] = [
+export const ItemColumns: Column<any>[] = [
   {
     accessor: "name",
     Header: "品名",

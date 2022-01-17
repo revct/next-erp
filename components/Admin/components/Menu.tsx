@@ -13,8 +13,8 @@ const Menu = (props: MenuProps) => {
   const config = CONFIG;
   return (
     <aside className={`shadow-lg h-screen bg-base-100 ${props.className}`}>
+      <div className="text-2xl font-bold flex items-center justify-center h-[64px]">{config.appName}</div>
       <ul className="menu p-4 gap-2">
-        <li className="text-2xl menu-title py-4">{config.appName}</li>
         {menus.map((menu) => {
           const isActive = asPath === menu.path;
           return (

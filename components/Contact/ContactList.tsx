@@ -6,7 +6,6 @@ import useSWR from "swr";
 
 const ContactList = () => {
   const { data } = useSWR("/api/contacts", fetcher);
-  console.log(data);
   const columns = ContactColumns;
 
   return (
