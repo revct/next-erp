@@ -1,4 +1,5 @@
 /* eslint-disable react/jsx-key */
+import { Icon } from "@iconify/react";
 import { FunctionComponent } from "react";
 import { usePagination, useTable } from "react-table";
 
@@ -87,12 +88,12 @@ const Table: FunctionComponent<TableProps> = (props) => {
         <button
           className={`btn btn-square ${canPreviousPage ? "" : "btn-disabled"}`}
         >
-          <span className="iconify" data-icon="mdi:chevron-double-left"></span>
+          <Icon icon="mdi:chevron-double-left"></Icon>
         </button>
         <button
           className={`btn btn-square ${canPreviousPage ? "" : "btn-disabled"}`}
         >
-          <span className="iconify" data-icon="mdi:chevron-left"></span>
+          <Icon icon="mdi:chevron-left"></Icon>
         </button>
         {page?.map((item: any) => (
           <button
@@ -108,12 +109,12 @@ const Table: FunctionComponent<TableProps> = (props) => {
         <button
           className={`btn btn-square ${canNextPage ? "" : "btn-disabled"}`}
         >
-          <span className="iconify" data-icon="mdi:chevron-right"></span>
+          <Icon icon="mdi:chevron-right"></Icon>
         </button>
         <button
           className={`btn btn-square ${canNextPage ? "" : "btn-disabled"}`}
         >
-          <span className="iconify" data-icon="mdi:chevron-double-right"></span>
+          <Icon icon="mdi:chevron-double-right"></Icon>
         </button>
       </div>
     </div>

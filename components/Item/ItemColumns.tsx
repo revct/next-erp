@@ -1,6 +1,7 @@
 /* eslint-disable react/display-name */
 import { Column } from "react-table";
 import Link from "next/link";
+import { Icon } from "@iconify/react";
 
 export const ItemColumns: Column<Item>[] = [
   {
@@ -22,7 +23,7 @@ export const ItemColumns: Column<Item>[] = [
       <div className="space-x-2">
         <Link href={`/items/${value}`} passHref>
           <button className="btn btn-square">
-            <span className="iconify" data-icon="ant-design:edit-filled"></span>
+            <Icon icon="ant-design:edit-filled"></Icon>
           </button>
         </Link>
       </div>

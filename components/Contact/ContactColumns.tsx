@@ -1,4 +1,5 @@
 /* eslint-disable react/display-name */
+import { Icon } from "@iconify/react";
 import Link from "next/link";
 import { Column } from "react-table";
 import DeleteConfirm from "../Confirm/DeleteConfirm";
@@ -39,7 +40,7 @@ export const ContactColumns: Column<any>[] = [
       <div className="space-x-2">
         <Link href={`/contacts/${value}`} passHref>
           <button className="btn btn-square">
-            <span className="iconify" data-icon="ant-design:edit-filled"></span>
+            <Icon icon="ant-design:edit-filled"></Icon>
           </button>
         </Link>
         <DeleteConfirm
@@ -51,10 +52,7 @@ export const ContactColumns: Column<any>[] = [
           }
         >
           <button className="btn btn-square">
-            <span
-              className="iconify"
-              data-icon="ant-design:delete-filled"
-            ></span>
+            <Icon icon="ant-design:delete-filled"></Icon>
           </button>
         </DeleteConfirm>
       </div>

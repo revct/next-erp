@@ -12,7 +12,6 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
         <title>ERP系统</title>
       </Head>
       <Component {...pageProps} />
-      <Script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></Script>
     </SessionProvider>
   );
 }
