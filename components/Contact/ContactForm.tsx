@@ -140,7 +140,7 @@ const ContactForm: FunctionComponent<IProps> = ({
           />
         </div>
       </div>
-      <div className="px-4 py-3 bg-gray-50 text-right">
+      <div className="px-4 py-3 text-right">
         <button
           className={`btn btn-primary ${
             formState.isSubmitting ? "loading" : ""

@@ -1,17 +1,18 @@
 import Image from "next/image";
 import { Icon } from "@iconify/react";
 import useUserStore from "~/store/user";
-import { Header, HeaderProps } from "@mantine/core";
 import useConfigStore from "~/store/config";
 
-const MyHeader = (props: Omit<HeaderProps, "children">) => {
+interface HeaderProps extends React.HTMLAttributes<HTMLDivElement> {}
+
+const CustomHeader = (props: Omit<HeaderProps, "children">) => {
   const user = useUserStore();
 
   const config = useConfigStore();
   return (
-    <Header
+    <nav
       {...props}
-      className={`navbar shadow-lg bg-white rounded gap-2 ${props.className}`}
+      className={`shadow-lg bg-white rounded-2xl gap-2 ${props.className} flex items-center px-2`}
     >
       <div className="flex-none flex">
         <button className="btn btn-square btn-ghost">
@@ -38,8 +39,8 @@ const MyHeader = (props: Omit<HeaderProps, "children">) => {
           />
         </div>
       </div>
-    </Header>
+    </nav>
   );
 };
 
-export default MyHeader;
+export default CustomHeader;
