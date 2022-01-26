@@ -1,12 +1,6 @@
 import Admin from "@/components/Admin";
-import { signIn, useSession } from "next-auth/react";
 
 const Profile = () => {
-  const { data: session } = useSession();
-  if (!session) {
-    signIn();
-  }
-
   return (
     <Admin>
       <section className="max-w-4xl p-6 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800">

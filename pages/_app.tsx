@@ -1,4 +1,3 @@
-import { SessionProvider } from "next-auth/react";
 import "../styles/globals.css";
 import Head from "next/head";
 import type { AppProps } from "next/app";
@@ -19,13 +18,11 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
       </Head>
       <Progressbar></Progressbar>
 
-      <SessionProvider session={session}>
-        <MantineProvider>
-          <ModalsProvider>
-            <Component {...pageProps} />
-          </ModalsProvider>
-        </MantineProvider>
-      </SessionProvider>
+      <MantineProvider>
+        <ModalsProvider>
+          <Component {...pageProps} />
+        </ModalsProvider>
+      </MantineProvider>
     </>
   );
 }
