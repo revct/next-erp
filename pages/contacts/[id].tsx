@@ -1,5 +1,5 @@
-import Admin from "@/components/Admin";
-import userContacts from "@/data/useContacts";
+import Admin from "~/components/Admin";
+import userContacts from "~/data/useContacts";
 import { NextPage } from "next";
 import { useRouter } from "next/dist/client/router";
 import ContactForm from "../../components/Contact/ContactForm";

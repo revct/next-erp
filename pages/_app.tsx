@@ -2,7 +2,7 @@ import "../styles/globals.css";
 import Head from "next/head";
 import type { AppProps } from "next/app";
 import "../mocks";
-import Progressbar from "@/components/Progressbar";
+import Progressbar from "~/components/Progressbar";
 import { MantineProvider } from "@mantine/core";
 import { ModalsProvider } from "@mantine/modals";
 

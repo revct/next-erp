@@ -1,6 +1,6 @@
-import Admin from "@/components/Admin";
+import Admin from "~/components/Admin";
 import { NextRouter, useRouter } from "next/dist/client/router";
-import ItemForm from "@/components/Item/ItemForm";
+import ItemForm from "~/components/Item/ItemForm";
 import useSWR from "swr";
 
 interface IProps {

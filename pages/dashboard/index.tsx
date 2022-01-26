@@ -1,6 +1,6 @@
-import Admin from "@/components/Admin";
-import DashboardPanel from "@/components/Dashboard/DashboardPanel";
-import useUserStore from "@/store/user";
+import Admin from "~/components/Admin";
+import DashboardPanel from "~/components/Dashboard/DashboardPanel";
+import useUserStore from "~/store/user";
 
 const Dashboard = () => {
   const user = useUserStore();

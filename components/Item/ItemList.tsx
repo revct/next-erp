@@ -1,6 +1,6 @@
-import { ItemColumns } from "@/components/Item/ItemColumns";
-import Table from "@/components/Table";
-import { useItems } from "@/data/items";
+import { ItemColumns } from "~/components/Item/ItemColumns";
+import Table from "~/components/Table";
+import { useItems } from "~/data/items";
 import Link from "next/link";
 
 interface Props {}

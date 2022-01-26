@@ -1,5 +1,5 @@
-import Admin from "@/components/Admin";
-import Table from "@/components/Table";
+import Admin from "~/components/Admin";
+import Table from "~/components/Table";
 import { NextPage } from "next";
 import { useEffect, useState } from "react";
 

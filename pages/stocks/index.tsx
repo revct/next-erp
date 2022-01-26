@@ -1,8 +1,8 @@
-import Admin from "@/components/Admin";
+import Admin from "~/components/Admin";
 import { NextPage } from "next";
-import { StockColumns } from "@/components/Stock/StockColumns";
-import useStocks from "@/data/useStocks";
-import Table from "@/components/Table";
+import { StockColumns } from "~/components/Stock/StockColumns";
+import useStocks from "~/data/useStocks";
+import Table from "~/components/Table";
 
 const Customer: NextPage = () => {
   const { data: stocks, mutate } = useStocks();

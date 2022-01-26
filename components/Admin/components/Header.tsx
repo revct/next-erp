@@ -1,8 +1,8 @@
 import Image from "next/image";
 import { Icon } from "@iconify/react";
-import useUserStore from "@/store/user";
+import useUserStore from "~/store/user";
 import { Header, HeaderProps } from "@mantine/core";
-import useConfigStore from "@/store/config";
+import useConfigStore from "~/store/config";
 
 const MyHeader = (props: Omit<HeaderProps, "children">) => {
   const user = useUserStore();

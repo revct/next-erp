@@ -1,4 +1,4 @@
-import Admin from "@/components/Admin";
+import Admin from "~/components/Admin";
 import ContactForm from "../../components/Contact/ContactForm";
 
 const ContactShow = () => {

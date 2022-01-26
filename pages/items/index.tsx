@@ -1,5 +1,5 @@
-import Admin from "@/components/Admin";
-import ItemList from "@/components/Item/ItemList";
+import Admin from "~/components/Admin";
+import ItemList from "~/components/Item/ItemList";
 import { NextPage } from "next";
 
 const ItemPage: NextPage = () => {

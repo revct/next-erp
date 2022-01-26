@@ -1,5 +1,5 @@
-import useConfigStore from "@/store/config";
-import { MENUS } from "@/store/constant";
+import useConfigStore from "~/store/config";
+import { MENUS } from "~/store/constant";
 import { Icon } from "@iconify/react";
 import { Navbar, NavbarProps, ScrollArea, UnstyledButton } from "@mantine/core";
 import { useRouter } from "next/dist/client/router";

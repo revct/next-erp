@@ -1,5 +1,5 @@
-import Admin from "@/components/Admin";
-import ItemForm from "@/components/Item/ItemForm";
+import Admin from "~/components/Admin";
+import ItemForm from "~/components/Item/ItemForm";
 
 const ContactCreate = () => {
   return (
