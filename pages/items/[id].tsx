@@ -1,4 +1,4 @@
-import Admin from "~/components/Admin";
+import App from "~/components/App";
 import { NextRouter, useRouter } from "next/dist/client/router";
 import ItemForm from "~/components/Item/ItemForm";
 import useSWR from "swr";
@@ -15,9 +15,9 @@ const ItemShowPage = (props: IProps) => {
   const { data } = useSWR(`/api/items/${id}`);
 
   return (
-    <Admin>
+    <App>
       <ItemForm defaultValues={data}></ItemForm>
-    </Admin>
+    </App>
   );
 };
 

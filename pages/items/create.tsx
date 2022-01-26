@@ -1,11 +1,11 @@
-import Admin from "~/components/Admin";
+import App from "~/components/App";
 import ItemForm from "~/components/Item/ItemForm";
 
 const ContactCreate = () => {
   return (
-    <Admin>
+    <App>
       <ItemForm></ItemForm>
-    </Admin>
+    </App>
   );
 };
 

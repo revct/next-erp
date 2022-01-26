@@ -1,11 +1,11 @@
-import Admin from "~/components/Admin";
+import App from "~/components/App";
 import DashboardPanel from "~/components/Dashboard/DashboardPanel";
 import useUserStore from "~/store/user";
 
 const Dashboard = () => {
   const user = useUserStore();
   return (
-    <Admin>
+    <App>
       <h1 className="text-4xl font-semibold text-gray-800 dark:text-white">
         欢迎回来，{user.info.username}
       </h1>
@@ -114,7 +114,7 @@ const Dashboard = () => {
           </div>
         </div>
       </div>
-    </Admin>
+    </App>
   );
 };
 

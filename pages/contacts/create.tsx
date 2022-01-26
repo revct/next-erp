@@ -1,11 +1,11 @@
-import Admin from "~/components/Admin";
+import App from "~/components/App";
 import ContactForm from "../../components/Contact/ContactForm";
 
 const ContactShow = () => {
   return (
-    <Admin>
+    <App>
       <ContactForm></ContactForm>
-    </Admin>
+    </App>
   );
 };
 

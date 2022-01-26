@@ -1,12 +1,12 @@
-import Admin from "~/components/Admin";
+import App from "~/components/App";
 import ItemList from "~/components/Item/ItemList";
 import { NextPage } from "next";
 
 const ItemPage: NextPage = () => {
   return (
-    <Admin>
+    <App>
       <ItemList></ItemList>
-    </Admin>
+    </App>
   );
 };
 

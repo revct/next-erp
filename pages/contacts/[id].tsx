@@ -1,4 +1,4 @@
-import Admin from "~/components/Admin";
+import App from "~/components/App";
 import userContacts from "~/data/useContacts";
 import { NextPage } from "next";
 import { useRouter } from "next/dist/client/router";
@@ -39,13 +39,13 @@ const ContactShowPage: NextPage = () => {
   };
 
   return (
-    <Admin>
+    <App>
       <ContactForm
         loading={isValidating}
         defaultValues={data}
         onSubmit={(data) => handleSave(data)}
       ></ContactForm>
-    </Admin>
+    </App>
   );
 };
 

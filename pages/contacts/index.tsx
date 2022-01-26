@@ -1,13 +1,13 @@
 import { NextPage } from "next";
 
-import Admin from "~/components/Admin";
+import App from "~/components/App";
 import ContactList from "../../components/Contact/ContactList";
 
 const ContactPage: NextPage = () => {
   return (
-    <Admin>
+    <App>
       <ContactList></ContactList>
-    </Admin>
+    </App>
   );
 };
 

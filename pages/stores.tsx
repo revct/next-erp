@@ -1,4 +1,4 @@
-import Admin from "~/components/Admin";
+import App from "~/components/App";
 import Table from "~/components/Table";
 import { NextPage } from "next";
 import { useEffect, useState } from "react";
@@ -20,9 +20,9 @@ const Customer: NextPage = () => {
   }, []);
 
   return (
-    <Admin>
+    <App>
       <Table columns={table.columns} rows={table.rows} />
-    </Admin>
+    </App>
   );
 };
 

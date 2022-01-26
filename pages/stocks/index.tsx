@@ -1,4 +1,4 @@
-import Admin from "~/components/Admin";
+import App from "~/components/App";
 import { NextPage } from "next";
 import { StockColumns } from "~/components/Stock/StockColumns";
 import useStocks from "~/data/useStocks";
@@ -19,14 +19,14 @@ const Customer: NextPage = () => {
   };
 
   return (
-    <Admin>
+    <App>
       <section className="mb-4">
         <button className="btn" onClick={() => handleCreate()}>
           新增
         </button>
       </section>
       <Table columns={StockColumns} rows={stocks.rows}></Table>
-    </Admin>
+    </App>
   );
 };
 
