@@ -1,3 +1,4 @@
+import useConfigStore from "@/store/config";
 import { CONFIG, MENUS } from "@/store/constant";
 import { Icon } from "@iconify/react";
 import { Navbar, NavbarProps } from "@mantine/core";
@@ -7,7 +8,7 @@ import Link from "next/link";
 const MyNavbar = (props: Omit<NavbarProps, "children">) => {
   const { asPath } = useRouter();
   const menus = MENUS;
-  const config = CONFIG;
+  const config = useConfigStore();
   return (
     <Navbar
       {...props}

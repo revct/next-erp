@@ -30,7 +30,3 @@ export const MENUS = [
     icon: "icon-park-outline:transaction-order",
   },
 ];
-
-export const CONFIG = {
-  appName: "ERP System",
-};
