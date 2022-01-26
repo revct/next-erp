@@ -1,15 +1,15 @@
 import Image from "next/image";
 import { Icon } from "@iconify/react";
 import useUserStore from "@/store/user";
+import { Header, HeaderProps } from "@mantine/core";
 
-interface Props {
-  className?: string;
-}
-
-const Header = (props: Props) => {
+const MyHeader = (props: Omit<HeaderProps, "children">) => {
   const user = useUserStore();
   return (
-    <header className={`navbar shadow-lg bg-white rounded gap-2 ${props.className}`}>
+    <Header
+      {...props}
+      className={`navbar shadow-lg bg-white rounded gap-2 ${props.className}`}
+    >
       <div className="flex-none hidden lg:flex">
         <button className="btn btn-square btn-ghost">
           <Icon icon="mdi:menu" fontSize={24}></Icon>
@@ -18,20 +18,7 @@ const Header = (props: Props) => {
       <div className="flex-1 hidden px-2 mx-2 lg:flex">
         <span className="text-lg font-bold">DaisyUI</span>
       </div>
-      <div className="flex-1 lg:flex-none">
-        <div className="form-control">
-          <input
-            type="text"
-            placeholder="Search"
-            className="input input-ghost"
-          />
-        </div>
-      </div>
-      <div className="flex-none">
-        <button className="btn btn-square btn-ghost">
-          <Icon icon="charm:search" fontSize={24}></Icon>
-        </button>
-      </div>
+
       <div className="flex-none">
         <button className="btn btn-square btn-ghost">
           <Icon icon="akar-icons:bell" fontSize={24}></Icon>
@@ -48,8 +35,8 @@ const Header = (props: Props) => {
           />
         </div>
       </div>
-    </header>
+    </Header>
   );
 };
 
-export default Header;
+export default MyHeader;
