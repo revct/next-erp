@@ -1,5 +1,6 @@
 /* eslint-disable react/display-name */
 import { Icon } from "@iconify/react";
+import { ActionIcon } from "@mantine/core";
 import Link from "next/link";
 import { Column } from "react-table";
 import DeleteConfirm from "../Confirm/DeleteConfirm";
@@ -37,24 +38,16 @@ export const ContactColumns: Column<any>[] = [
     accessor: "id",
     Header: "操作",
     Cell: ({ value }) => (
-      <div className="space-x-2">
+      <div className="flex space-x-2">
         <Link href={`/contacts/${value}`} passHref>
-          <button className="btn btn-square">
+          <ActionIcon>
             <Icon icon="ant-design:edit-filled"></Icon>
-          </button>
+          </ActionIcon>
         </Link>
-        <DeleteConfirm
-          onConfirm={() =>
-            fetch(`/api/contacts/${value}`, {
-              method: "delete",
-              headers: { "Content-Type": "application/json" },
-            })
-          }
-        >
-          <button className="btn btn-square">
-            <Icon icon="ant-design:delete-filled"></Icon>
-          </button>
-        </DeleteConfirm>
+
+        <ActionIcon>
+          <Icon icon="ant-design:delete-filled"></Icon>
+        </ActionIcon>
       </div>
     ),
   },

@@ -1,5 +1,6 @@
 /* eslint-disable react/jsx-key */
 import { Icon } from "@iconify/react";
+import { Pagination } from "@mantine/core";
 import { FunctionComponent } from "react";
 import { usePagination, useTable } from "react-table";
 
@@ -26,6 +27,7 @@ const Table: FunctionComponent<TableProps> = (props) => {
     canPreviousPage,
     canNextPage,
     page,
+    pageCount,
     state: { pageIndex, pageSize },
   } = tableInstance;
   return (
@@ -84,39 +86,11 @@ const Table: FunctionComponent<TableProps> = (props) => {
           }
         </tbody>
       </table>
-      <div className="flex space-x-2 justify-center items-center">
-        <button
-          className={`btn btn-square ${canPreviousPage ? "" : "btn-disabled"}`}
-        >
-          <Icon icon="mdi:chevron-double-left"></Icon>
-        </button>
-        <button
-          className={`btn btn-square ${canPreviousPage ? "" : "btn-disabled"}`}
-        >
-          <Icon icon="mdi:chevron-left"></Icon>
-        </button>
-        {page?.map((item: any) => (
-          <button
-            className={`btn btn-square ${
-              pageIndex === item.index ? "btn-active" : ""
-            }`}
-            key={item.index}
-          >
-            {item.index + 1}
-          </button>
-        ))}
-
-        <button
-          className={`btn btn-square ${canNextPage ? "" : "btn-disabled"}`}
-        >
-          <Icon icon="mdi:chevron-right"></Icon>
-        </button>
-        <button
-          className={`btn btn-square ${canNextPage ? "" : "btn-disabled"}`}
-        >
-          <Icon icon="mdi:chevron-double-right"></Icon>
-        </button>
-      </div>
+      <Pagination
+        total={pageCount}
+        page={pageIndex + 1}
+        position="center"
+      ></Pagination>
     </div>
   );
 };

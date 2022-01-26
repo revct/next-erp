@@ -12,6 +12,7 @@
     "@headlessui/react": "^1.4.3",
     "@mantine/core": "^3.6.3",
     "@mantine/hooks": "^3.6.3",
+    "@mantine/modals": "^3.6.3",
     "@mantine/next": "^3.6.3",
     "@mswjs/data": "^0.8.4",
     "daisyui": "^1.25.4",

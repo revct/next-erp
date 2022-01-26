@@ -5,6 +5,7 @@ import type { AppProps } from "next/app";
 import "../mocks";
 import Progressbar from "@/components/Progressbar";
 import { MantineProvider } from "@mantine/core";
+import { ModalsProvider } from "@mantine/modals";
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   return (
@@ -19,15 +20,10 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
       <Progressbar></Progressbar>
 
       <SessionProvider session={session}>
-        <MantineProvider
-          withGlobalStyles
-          withNormalizeCSS
-          theme={{
-            /** Put your mantine theme override here */
-            colorScheme: "light",
-          }}
-        >
-          <Component {...pageProps} />
+        <MantineProvider>
+          <ModalsProvider>
+            <Component {...pageProps} />
+          </ModalsProvider>
         </MantineProvider>
       </SessionProvider>
     </>

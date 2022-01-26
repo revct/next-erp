@@ -1,19 +1,32 @@
 import { ContactColumns } from "@/components/Contact/ContactColumns";
 import Table from "@/components/Table";
 import fetcher from "@/utils/fetcher";
-import Link from "next/link";
+import { Button } from "@mantine/core";
+import { useModals } from "@mantine/modals";
 import useSWR from "swr";
+import ContactForm from "./ContactForm";
 
 const ContactList = () => {
   const { data } = useSWR("/api/contacts", fetcher);
   const columns = ContactColumns;
-
+  const modals = useModals();
+  const handleOpenModal = () => {
+    const createModal = modals.openModal({
+      title: "新建联系人",
+      children: (
+        <>
+          <ContactForm></ContactForm>
+        </>
+      ),
+      size: 600,
+    });
+  };
   return (
     <div className="space-y-2">
       <section>
-        <Link href="/contacts/create" passHref>
-          <button className="btn">新增</button>
-        </Link>
+        <Button className="btn" onClick={() => handleOpenModal()}>
+          新增
+        </Button>
       </section>
       <Table columns={columns} rows={data?.rows || []}></Table>
     </div>

@@ -50,7 +50,6 @@ const ContactForm: FunctionComponent<IProps> = ({
   };
 
   const handleSave = async (data: any) => {
-    console.log(data);
     if (data.id) {
       await handleUpdate(data);
     } else {
