@@ -1,9 +1,9 @@
 /* eslint-disable react/display-name */
 import { Icon } from "@iconify/react";
 import { ActionIcon } from "@mantine/core";
-import Link from "next/link";
+import { useModals } from "@mantine/modals";
 import { Column } from "react-table";
-import DeleteConfirm from "../Confirm/DeleteConfirm";
+import ContactForm from "./ContactForm";
 
 export const ContactColumns: Column<any>[] = [
   {
@@ -22,33 +22,45 @@ export const ContactColumns: Column<any>[] = [
     ),
   },
   {
-    accessor: "company",
-    Header: "所属公司",
-  },
-  {
-    accessor: "address",
+    accessor: "phone",
     width: 200,
-    Header: "地址",
+    Header: "联系电话",
   },
   {
     accessor: "remarks",
     Header: "备注",
   },
   {
-    accessor: "id",
+    accessor: "action",
+    width: 100,
     Header: "操作",
-    Cell: ({ value }) => (
-      <div className="flex space-x-2">
-        <Link href={`/contacts/${value}`} passHref>
-          <ActionIcon>
+    Cell: ({ value }) => {
+      const modals = useModals();
+
+      const handleEditModal = () => {
+        const editModal = modals.openModal({
+          title: "编辑联系人",
+          children: (
+            <ContactForm
+              onSubmit={(val) => {
+                console.log(val);
+                modals.closeModal(editModal);
+              }}
+            ></ContactForm>
+          ),
+        });
+      };
+      return (
+        <div className="flex space-x-2">
+          <ActionIcon onClick={handleEditModal}>
             <Icon icon="ant-design:edit-filled"></Icon>
           </ActionIcon>
-        </Link>
 
-        <ActionIcon>
-          <Icon icon="ant-design:delete-filled"></Icon>
-        </ActionIcon>
-      </div>
-    ),
+          <ActionIcon>
+            <Icon icon="ant-design:delete-filled"></Icon>
+          </ActionIcon>
+        </div>
+      );
+    },
   },
 ];

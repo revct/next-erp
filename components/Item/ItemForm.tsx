@@ -3,10 +3,9 @@ import { useRouter } from "next/router";
 import React, { FunctionComponent, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { createItem, updateItem } from "@/data/items";
-import { Item } from ".prisma/client";
 import SupplierModal from "../Modal/SupplierModal";
 
-type DefaultValueProps = Omit<Item, "id">;
+type DefaultValueProps = Omit<any, "id">;
 
 interface IProps extends React.HTMLAttributes<HTMLDivElement> {
   defaultValues?: DefaultValueProps;

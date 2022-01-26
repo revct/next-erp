@@ -1,5 +1,4 @@
 import { cloneDeep, isFunction } from "lodash-es";
-import { useRouter } from "next/dist/client/router";
 import { FunctionComponent, useEffect } from "react";
 import { useForm } from "react-hook-form";
 
@@ -29,7 +28,6 @@ const ContactForm: FunctionComponent<IProps> = ({
   onSubmit,
   loading,
 }) => {
-  const router = useRouter();
   const { handleSubmit, reset, register, formState } = useForm({
     defaultValues: defaultData,
   });
@@ -57,8 +55,6 @@ const ContactForm: FunctionComponent<IProps> = ({
     }
     if (isFunction(onSubmit)) {
       onSubmit(data);
-    } else {
-      router.back();
     }
   };
 

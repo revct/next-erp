@@ -1,7 +1,6 @@
-import { Stock } from ".prisma/client";
 import { Column } from "react-table";
 
-export const StockColumns: Column<Stock>[] = [
+export const StockColumns: Column<any>[] = [
   {
     accessor: "id",
     Header: "品名",

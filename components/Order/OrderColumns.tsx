@@ -1,7 +1,6 @@
-import { Order } from ".prisma/client";
 import { Column } from "react-table";
 
-export const OrderColumns: Column<Order>[] = [
+export const OrderColumns: Column<any>[] = [
   {
     accessor: "status",
     Header: "订单状态",
