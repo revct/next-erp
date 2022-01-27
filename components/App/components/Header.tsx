@@ -3,17 +3,19 @@ import { Icon } from "@iconify/react";
 import useUserStore from "~/store/user";
 import useConfigStore from "~/store/config";
 import { Menu } from "@mantine/core";
+import { useRouter } from "next/router";
 
 interface HeaderProps extends React.HTMLAttributes<HTMLDivElement> {}
 
 const CustomHeader = (props: Omit<HeaderProps, "children">) => {
+  const router = useRouter();
   const user = useUserStore();
 
   const config = useConfigStore();
   return (
     <nav
       {...props}
-      className={`shadow-lg bg-white rounded-2xl gap-2 ${props.className} flex items-center px-2`}
+      className={`shadow-lg bg-white rounded-2xl flex items-center px-2 ${props.className} `}
     >
       <div className="">
         <button className="btn btn-square btn-ghost">
@@ -44,6 +46,13 @@ const CustomHeader = (props: Omit<HeaderProps, "children">) => {
           }
         >
           <Menu.Item>Settings</Menu.Item>
+          <Menu.Item
+            onClick={() => {
+              router.push("/sign-in");
+            }}
+          >
+            Sign out
+          </Menu.Item>
         </Menu>
       </div>
     </nav>
