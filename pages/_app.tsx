@@ -6,7 +6,7 @@ import Progressbar from "~/components/Progressbar";
 import { MantineProvider } from "@mantine/core";
 import { ModalsProvider } from "@mantine/modals";
 
-function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
+const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
     <>
       <Head>
@@ -16,8 +16,8 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
           content="minimum-scale=1, initial-scale=1, width=device-width"
         />
       </Head>
-      <Progressbar></Progressbar>
 
+      <Progressbar></Progressbar>
       <MantineProvider>
         <ModalsProvider>
           <Component {...pageProps} />
@@ -25,5 +25,5 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
       </MantineProvider>
     </>
   );
-}
+};
 export default MyApp;

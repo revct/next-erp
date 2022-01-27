@@ -43,7 +43,6 @@ export const ContactColumns: Column<any>[] = [
           children: (
             <ContactForm
               onSubmit={(val) => {
-                console.log(val);
                 modals.closeModal(editModal);
               }}
             ></ContactForm>

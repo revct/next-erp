@@ -1,11 +1,6 @@
 import { useRouter } from "next/dist/client/router";
 import { useForm } from "react-hook-form";
 
-type LoginProps = {
-  account: string;
-  password: string;
-};
-
 const Login = () => {
   const router = useRouter();
   const { register, handleSubmit } = useForm();
