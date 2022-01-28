@@ -69,7 +69,7 @@ const ContactForm: FunctionComponent<IProps> = ({
   };
   return (
     <form onSubmit={handleSubmit(handleSave)}>
-      <div className="px-4 py-5 bg-white grid grid-cols-2 gap-6">
+      <div className="px-4 py-5 grid grid-cols-2 gap-6">
         <div className="form-control">
           <label className="label">
             <span className="label-text">姓名</span>
