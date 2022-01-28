@@ -2,7 +2,7 @@ import { Dialog, Transition } from "@headlessui/react";
 import { ModalProps } from "@mantine/core";
 import { Fragment } from "react";
 
-const Modal = ({ children, opened, onClose, ...props }: ModalProps) => {
+const Modal = ({ children, opened, onClose, title, ...props }: ModalProps) => {
   return (
     <Transition appear show={opened} as={Fragment}>
       <Dialog
@@ -42,8 +42,10 @@ const Modal = ({ children, opened, onClose, ...props }: ModalProps) => {
             <div className="inline-block w-full max-w-md p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-base-100 shadow-xl rounded-2xl">
               <Dialog.Title
                 as="h3"
-                className="text-lg font-medium leading-6 text-gray-900"
-              ></Dialog.Title>
+                className="text-lg font-medium leading-6 text-base-content"
+              >
+                {title}
+              </Dialog.Title>
               {children}
             </div>
           </Transition.Child>
