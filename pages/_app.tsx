@@ -6,6 +6,7 @@ import Progressbar from "~/components/Progressbar";
 import { MantineProvider } from "@mantine/core";
 import { ModalsProvider } from "@mantine/modals";
 import { NotificationsProvider } from "@mantine/notifications";
+import RootProvider from "~/components/Provider/RootProvider";
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
@@ -19,13 +20,13 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
       </Head>
 
       <Progressbar></Progressbar>
-      <MantineProvider>
+      <RootProvider>
         <NotificationsProvider>
           <ModalsProvider>
             <Component {...pageProps} />
           </ModalsProvider>
         </NotificationsProvider>
-      </MantineProvider>
+      </RootProvider>
     </>
   );
 };

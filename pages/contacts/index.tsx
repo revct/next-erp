@@ -1,7 +1,11 @@
 import { NextPage } from "next";
+import dynamic from "next/dynamic";
 
 import App from "~/components/App";
-import ContactList from "../../components/Contact/ContactList";
+
+const ContactList = dynamic(() => import("~/components/Contact/ContactList"), {
+  ssr: false,
+});
 
 const ContactPage: NextPage = () => {
   return (

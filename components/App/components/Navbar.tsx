@@ -13,19 +13,19 @@ const Navbar = (props: Omit<NavbarProps, "children">) => {
   return (
     <nav
       {...props}
-      className={`rounded-2xl shadow-lg bg-white w-48 ${props.className ?? ""}`}
+      className={`rounded-box shadow-lg bg-base-100 w-48 ${props.className ?? ""}`}
     >
       <div className="text-2xl font-bold flex items-center justify-center h-[64px]">
         {config.appName}
       </div>
-      <section className={`flex flex-col p-4 gap-2`}>
+      <section className={`flex flex-col p-4 gap-2 menu`}>
         {menus.map((menu) => {
           const isActive = asPath === menu.path;
           return (
             <Link href={menu.path} passHref key={menu.key}>
               <a
                 className={`h-12  ${
-                  isActive ? "bg-primary text-white" : "hover:bg-gray-200"
+                  isActive ? "bg-primary text-base-content" : "hover:bg-primary"
                 } flex items-center justify-start rounded-lg px-4`}
               >
                 <div className="inline-block h-4 w-4">

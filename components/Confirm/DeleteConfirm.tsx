@@ -22,7 +22,6 @@ const DeleteConfirm = (props: IProps = { onConfirm: () => {} }) => {
       >
         <Popover.Panel>
           <div className="modal-box absolute z-10">
-            <div>123</div>
             <div className="text-right space-x-2">
               <button className="btn btn-ghost">取消</button>
               <button

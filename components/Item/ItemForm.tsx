@@ -3,7 +3,6 @@ import { useRouter } from "next/router";
 import React, { FunctionComponent, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { createItem, updateItem } from "~/data/items";
-import SupplierModal from "../Modal/SupplierModal";
 
 type DefaultValueProps = Omit<any, "id">;
 
@@ -93,15 +92,6 @@ const ItemForm: FunctionComponent<IProps> = ({
       </div>
       <div className="bg-white">
         <div className="p-4">供应商信息</div>
-        <div className="p-4">
-          <div className="flex justify-center">
-            <SupplierModal>
-              <button className="btn" type="button">
-                选择供应商
-              </button>
-            </SupplierModal>
-          </div>
-        </div>
       </div>
       <div className="px-4 py-3 bg-gray-50 text-right">
         <button

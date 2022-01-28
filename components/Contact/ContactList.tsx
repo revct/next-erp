@@ -2,9 +2,9 @@ import { ContactColumns } from "~/components/Contact/ContactColumns";
 import Table from "~/components/Table";
 import fetcher from "~/utils/fetcher";
 import { Button } from "@mantine/core";
-import { useModals } from "@mantine/modals";
 import useSWR from "swr";
 import ContactForm from "./ContactForm";
+import useModals from "../Modal/useModals";
 
 const ContactList = () => {
   const { data } = useSWR("/api/contacts", fetcher);
