@@ -1,14 +1,6 @@
 import CustomHeader from "~/components/App/components/Header";
 
 const Profile = () => {
-  const getProfile = () => {
-    try {
-    } catch (error) {
-      alert(error.message);
-    }
-  };
-  const updateProfile = () => {};
-
   return (
     <>
       <CustomHeader></CustomHeader>

@@ -19,7 +19,7 @@ export interface ModalsContext {
   openModal: (props: ModalSettings) => string;
   openConfirmModal: (props: OpenConfirmModal) => string;
   openContextModal: (modal: string, props: Record<string, any>) => string;
-  closeModal: (id: string | null) => void;
+  closeModal: (id: any) => void;
   closeAll: () => void;
 }
 

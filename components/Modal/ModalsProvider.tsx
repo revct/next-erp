@@ -56,8 +56,8 @@ const ModalsProvider = ({
 }: ModalsProviderProps) => {
   const [state, handlers] = useListState<ModalState>([]);
   const [currentModal, setCurrentModal] = useState<ModalState>({
-    id: null,
-    props: null,
+    id: "",
+    props: {},
     type: "content",
   });
   const closeAll = () => {
@@ -105,7 +105,7 @@ const ModalsProvider = ({
   };
 
   const ContextModal =
-    currentModal?.type === "context" ? modals[currentModal?.ctx] : () => null;
+    currentModal?.type === "context" ? modals?.[currentModal?.ctx] : () => null;
 
   const ctx = {
     modals: state,
@@ -118,11 +118,12 @@ const ModalsProvider = ({
 
   const content =
     currentModal?.type === "context" ? (
-      <ContextModal
-        context={ctx}
-        id={currentModal?.id}
-        {...(currentModal?.props as any)}
-      />
+      // <ContextModal
+      //   context={ctx}
+      //   id={currentModal?.id}
+      //   {...(currentModal?.props as any)}
+      // />
+      currentModal?.props?.children
     ) : currentModal?.type === "confirm" ? (
       <ConfirmModal
         {...currentModal.props}
