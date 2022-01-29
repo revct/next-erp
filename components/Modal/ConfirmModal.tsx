@@ -47,11 +47,11 @@ export function ConfirmModal({
 
       <Group position="right" {...groupProps}>
         <Button variant="default" {...cancelProps} onClick={handleCancel}>
-          {cancelProps?.children || labels.cancel}
+          {cancelProps?.children || labels?.cancel}
         </Button>
 
         <Button {...confirmProps} onClick={handleConfirm}>
-          {confirmProps?.children || labels.confirm}
+          {confirmProps?.children || labels?.confirm}
         </Button>
       </Group>
     </>
