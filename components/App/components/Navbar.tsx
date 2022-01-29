@@ -13,7 +13,9 @@ const Navbar = (props: Omit<NavbarProps, "children">) => {
   return (
     <nav
       {...props}
-      className={`rounded-box shadow-lg bg-base-100 w-48 ${props.className ?? ""}`}
+      className={`rounded-box shadow-lg bg-base-300 text-base-content w-48 ${
+        props.className ?? ""
+      }`}
     >
       <div className="text-2xl font-bold flex items-center justify-center h-[64px]">
         {config.appName}

@@ -1,6 +1,7 @@
 import { cloneDeep, isFunction } from "lodash-es";
 import { FunctionComponent, useEffect } from "react";
 import { useForm } from "react-hook-form";
+import { supabase } from "~/utils/supabase-client";
 
 type DefaultValueProps = Omit<any, "id">;
 
@@ -31,12 +32,8 @@ const ContactForm: FunctionComponent<IProps> = ({
   }, [loading, reset, defaultValues]);
 
   const handleCreate = async (data = {}) => {
-    await fetch("/api/contacts", {
-      method: "post",
-      body: JSON.stringify(data),
-      headers: {
-        "content-type": "application/json",
-      },
+    await supabase.from("contacts").upsert(data, {
+      returning: "minimal", // Don't return the value after inserting
     });
   };
 

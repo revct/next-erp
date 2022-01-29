@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Icon } from "@iconify/react";
 import useUserStore from "~/store/user";
-import useConfigStore from "~/store/config";
+// import useConfigStore from "~/store/config";
 import { Menu, Transition } from "@headlessui/react";
 import { useRouter } from "next/router";
 import { Fragment } from "react";
@@ -13,14 +13,14 @@ const CustomHeader = (props: Omit<HeaderProps, "children">) => {
   const router = useRouter();
   const user = useUserStore();
 
-  const config = useConfigStore();
+  // const config = useConfigStore();
   return (
     <nav
       {...props}
-      className={`shadow-lg bg-base-100 rounded-box flex items-center gap-4 px-4 ${props.className} `}
+      className={`shadow-lg bg-base-300 text-primary-content rounded-box flex items-center gap-4 px-4 ${props.className} `}
     >
       <div className="flex-1">
-        <span className="text-lg font-bold">{config.appName}</span>
+        <span className="text-lg font-bold">{router.route}</span>
       </div>
 
       <div className="">
