@@ -3,8 +3,6 @@ import Head from "next/head";
 import type { AppProps } from "next/app";
 // import "../mocks";
 import Progressbar from "~/components/Progressbar";
-import { MantineProvider } from "@mantine/core";
-import { ModalsProvider } from "@mantine/modals";
 import { NotificationsProvider } from "@mantine/notifications";
 import RootProvider from "~/components/Provider/RootProvider";
 
@@ -22,9 +20,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
       <Progressbar></Progressbar>
       <RootProvider>
         <NotificationsProvider>
-          <ModalsProvider>
-            <Component {...pageProps} />
-          </ModalsProvider>
+          <Component {...pageProps} />
         </NotificationsProvider>
       </RootProvider>
     </>
