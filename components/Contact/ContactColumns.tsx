@@ -1,6 +1,5 @@
 /* eslint-disable react/display-name */
 import { Icon } from "@iconify/react";
-import { ActionIcon } from "@mantine/core";
 import { useModals } from "@mantine/modals";
 import { Column } from "react-table";
 import ContactForm from "./ContactForm";
@@ -9,17 +8,6 @@ export const ContactColumns: Column<any>[] = [
   {
     accessor: "name",
     Header: "名称",
-    Cell: ({ row: { original } }) => (
-      <div className="flex items-center">
-        <div className="flex-shrink-0 h-10 w-10 bg-green-500 rounded-full"></div>
-        <div className="ml-4">
-          <div className="text-sm font-medium text-gray-900">
-            {original?.name}
-          </div>
-          <div className="text-sm text-gray-500">{original?.phone}</div>
-        </div>
-      </div>
-    ),
   },
   {
     accessor: "phone",
@@ -51,13 +39,13 @@ export const ContactColumns: Column<any>[] = [
       };
       return (
         <div className="flex space-x-2">
-          <ActionIcon onClick={handleEditModal}>
+          <button className="btn btn-square btn-xs" onClick={handleEditModal}>
             <Icon icon="ant-design:edit-filled"></Icon>
-          </ActionIcon>
+          </button>
 
-          <ActionIcon>
+          <button className="btn btn-square btn-xs">
             <Icon icon="ant-design:delete-filled"></Icon>
-          </ActionIcon>
+          </button>
         </div>
       );
     },

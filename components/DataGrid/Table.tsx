@@ -1,35 +1,19 @@
 /* eslint-disable react/jsx-key */
-import { Icon } from "@iconify/react";
-import { Pagination } from "@mantine/core";
-import { FunctionComponent } from "react";
-import { usePagination, useTable } from "react-table";
+import { useTable } from "react-table";
 
 interface TableProps {
   columns: any;
   rows: any;
 }
 
-const Table: FunctionComponent<TableProps> = (props) => {
-  const tableInstance = useTable(
-    {
-      columns: props.columns,
-      data: props.rows,
-    },
-    usePagination,
-  );
+const Table = (props: TableProps) => {
+  const tableInstance = useTable({
+    columns: props.columns,
+    data: props.rows,
+  });
 
-  const {
-    getTableProps,
-    getTableBodyProps,
-    headerGroups,
-    rows,
-    prepareRow,
-    canPreviousPage,
-    canNextPage,
-    page,
-    pageCount,
-    state: { pageIndex, pageSize },
-  } = tableInstance;
+  const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
+    tableInstance;
   return (
     <div className="space-y-2">
       <table className="table w-full" {...getTableProps()}>
@@ -86,11 +70,6 @@ const Table: FunctionComponent<TableProps> = (props) => {
           }
         </tbody>
       </table>
-      <Pagination
-        total={pageCount}
-        page={pageIndex + 1}
-        position="center"
-      ></Pagination>
     </div>
   );
 };
