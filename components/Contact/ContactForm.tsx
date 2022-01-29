@@ -11,16 +11,9 @@ interface IProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 const defaultData = {
-  address: "",
-  city: "",
-  company: "",
-  country: "",
-  email: "",
   name: "",
   phone: "",
   remarks: "",
-  state: "",
-  zipcode: "",
 } as DefaultValueProps;
 
 const ContactForm: FunctionComponent<IProps> = ({
@@ -88,46 +81,6 @@ const ContactForm: FunctionComponent<IProps> = ({
             className="input input-bordered"
             placeholder="请输入"
             {...register("phone")}
-          />
-        </div>
-        <div className="form-control">
-          <label className="label">
-            <span className="label-text">所属公司</span>
-          </label>
-          <input
-            className="input input-bordered"
-            placeholder="请输入"
-            {...register("company")}
-          />
-        </div>
-        <div className="form-control">
-          <label className="label">
-            <span className="label-text">邮箱</span>
-          </label>
-          <input
-            className="input input-bordered"
-            placeholder="请输入"
-            {...register("email")}
-          />
-        </div>
-        <div className="form-control">
-          <label className="label">
-            <span className="label-text">地址</span>
-          </label>
-          <input
-            className="input input-bordered"
-            placeholder="请输入"
-            {...register("address")}
-          />
-        </div>
-        <div className="form-control">
-          <label className="label">
-            <span className="label-text">邮政编码</span>
-          </label>
-          <input
-            className="input input-bordered"
-            placeholder="请输入"
-            {...register("zipcode")}
           />
         </div>
         <div className="form-control col-span-2">

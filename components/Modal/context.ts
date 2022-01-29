@@ -23,11 +23,11 @@ export interface ModalsContext {
   closeAll: () => void;
 }
 
-export const modalsContext = createContext({
+export const modalsContext = createContext<ModalsContext>({
   modals: [],
-  openModal: () => null,
-  openConfirmModal: () => null,
-  openContextModal: () => null,
+  openModal: () => "",
+  openConfirmModal: () => "",
+  openContextModal: () => "",
   closeAll: () => {},
   closeModal: () => {},
 });
