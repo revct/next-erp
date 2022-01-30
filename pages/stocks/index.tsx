@@ -2,7 +2,7 @@ import App from "~/components/App";
 import { NextPage } from "next";
 import { StockColumns } from "~/components/Stock/StockColumns";
 import useStocks from "~/data/useStocks";
-import Table from "~/components/Table";
+import Table from "~/components/DataGrid/Table";
 
 const Customer: NextPage = () => {
   const { data: stocks, mutate } = useStocks();

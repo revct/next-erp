@@ -1,5 +1,5 @@
 import App from "~/components/App";
-import Table from "~/components/Table";
+import Table from "~/components/DataGrid/Table";
 import { NextPage } from "next";
 import { useEffect, useState } from "react";
 

@@ -1,9 +1,10 @@
-/* eslint-disable react/jsx-key */
 import { useTable } from "react-table";
+import Empty from "../Empty";
 
 interface TableProps {
   columns: any;
   rows: any;
+  loading?: boolean;
 }
 
 const Table = (props: TableProps) => {
@@ -15,7 +16,7 @@ const Table = (props: TableProps) => {
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
     tableInstance;
   return (
-    <div className="space-y-2">
+    <div className="relative">
       <table className="table w-full" {...getTableProps()}>
         <thead>
           {
@@ -49,13 +50,16 @@ const Table = (props: TableProps) => {
               prepareRow(row);
               return (
                 // Apply the row props
-                <tr {...row.getRowProps()}>
+                <tr {...row.getRowProps()} key={row.getRowProps().key}>
                   {
                     // Loop over the rows cells
                     row.cells.map((cell) => {
                       // Apply the cell props
                       return (
-                        <td {...cell.getCellProps()}>
+                        <td
+                          {...cell.getCellProps()}
+                          key={cell.getCellProps().key}
+                        >
                           {
                             // Render the cell contents
                             cell.render("Cell")
@@ -70,6 +74,7 @@ const Table = (props: TableProps) => {
           }
         </tbody>
       </table>
+      {!rows.length && <Empty></Empty>}
     </div>
   );
 };

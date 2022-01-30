@@ -14,12 +14,18 @@ const DataGrid = (props: DataGridProps) => {
   const [count, setCount] = useState(0);
   const [limit] = useState(1);
   const total = useMemo(() => Math.ceil(count / limit), [limit, count]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const getData = async (params: any) => {
-      const { data = [], count } = await props.request(params);
-      setData(data);
-      setCount(count);
+      try {
+        setLoading(true);
+        const { data = [], count } = await props.request(params);
+        setData(data);
+        setCount(count);
+      } finally {
+        setLoading(false);
+      }
     };
     getData({ limit, offset });
   }, [limit, offset, props]);
@@ -28,6 +34,7 @@ const DataGrid = (props: DataGridProps) => {
     <>
       <Table columns={props.columns} rows={data}></Table>
       <Pagination
+        disabled={loading}
         total={total}
         page={page}
         onChange={(page) => setOffset(page - 1)}

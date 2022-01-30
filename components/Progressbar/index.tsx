@@ -7,7 +7,7 @@ const Progressbar = () => {
   Router.events.on("routeChangeError", () => NProgress.done());
   NProgress.configure({ showSpinner: false });
   const { color, height } = {
-    color: "#793ef9",
+    color: "#1eb854",
     height: 2,
   };
   return (

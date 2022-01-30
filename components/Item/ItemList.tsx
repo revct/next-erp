@@ -1,5 +1,5 @@
 import { ItemColumns } from "~/components/Item/ItemColumns";
-import Table from "~/components/Table";
+import Table from "~/components/DataGrid/Table";
 import { useItems } from "~/data/items";
 import Link from "next/link";
 

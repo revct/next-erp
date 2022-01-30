@@ -3,9 +3,11 @@ import { PaginationParams } from "@mantine/hooks/lib/use-pagination/use-paginati
 
 interface PaginationProps extends PaginationParams {
   className?: string;
+  disabled?: boolean;
 }
 
 const Pagination = (props: PaginationProps) => {
+  const { disabled } = props;
   const pagination = usePagination(props);
   return (
     <div className={`btn-group flex justify-center ${props.className ?? ""}`}>
@@ -22,6 +24,7 @@ const Pagination = (props: PaginationProps) => {
               pagination.setPage(item);
             }
           }}
+          disabled={disabled || item === "dots"}
         >
           {item === "dots" ? <span>...</span> : item}
         </button>

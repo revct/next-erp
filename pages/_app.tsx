@@ -17,9 +17,9 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
         />
       </Head>
 
-      <Progressbar></Progressbar>
       <RootProvider>
         <NotificationsProvider>
+          <Progressbar></Progressbar>
           <Component {...pageProps} />
         </NotificationsProvider>
       </RootProvider>
